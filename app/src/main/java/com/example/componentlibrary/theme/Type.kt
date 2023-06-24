@@ -6,7 +6,8 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.example.ethoscomponents.R
+import com.example.componentlibrary.R
+//import com.example.ethoscomponents.R
 
 // Set of Material typography styles to start with
 private val Inter = FontFamily(

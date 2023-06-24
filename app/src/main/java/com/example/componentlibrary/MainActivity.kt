@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.SnackbarHostState
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -20,8 +21,8 @@ import com.example.componentlibrary.ui.theme.ethOSTheme
 
 import com.example.componentlibrary.ui.theme.error
 //Composables
-import com.example.componentlibrary.ui.components.ethOSTextfield
-import com.example.componentlibrary.ui.components.rememberSnackbarDelegate
+//import com.example.componentlibrary.ui.components.ethOSTextfield
+//import com.example.componentlibrary.ui.components.rememberSnackbarDelegate
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +52,7 @@ fun GreetingPreview() {
 
         val scope = rememberCoroutineScope()
         val hostState = remember { SnackbarHostState() }
-        val sdeg = rememberSnackbarDelegate(hostState,scope)
+        //val sdeg = rememberSnackbarDelegate(hostState,scope)
 
         //Textfield
         Box() {
@@ -59,11 +60,11 @@ fun GreetingPreview() {
 
                 modifier = Modifier
                     .fillMaxWidth()
-                    .fillMaxHeight()
-                    .background(color = error),
+                    .fillMaxHeight(),
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
-            ethOSTextfield(value = "", placeholder = "Amount", modifier = Modifier.fillMaxWidth())
+                Text(text = "Hallow")
+            //ethOSTextfield(value = "", placeholder = "Amount", modifier = Modifier.fillMaxWidth())
             //ethOSTextfield(value = "", placeholder = "Amount", modifier = Modifier.fillMaxWidth())
                 /*ethOSButton(
                     "Mint",
