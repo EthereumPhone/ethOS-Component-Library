@@ -158,8 +158,8 @@ fun CustomSnackBar(
     @DrawableRes drawableRes: Int,
     delegate: SnackbarDelegate,
     message: String,
-    isRtl: Boolean = true,
-    containerColor: Color = white
+    //isRtl: Boolean = true,
+    //containerColor: Color = white
 ) {
     Snackbar(
         contentColor = delegate.snackbarOnColor,
@@ -194,7 +194,6 @@ fun CustomSnackBar(
 
 @Composable
 fun ethOSSnackbarHost(
-    //hostState: SnackbarHostState,
     delegate: SnackbarDelegate,
     modifier: Modifier
 ) {
@@ -206,9 +205,7 @@ fun ethOSSnackbarHost(
                 CustomSnackBar(
                     R.drawable.baseline_check_24,
                     delegate,
-                    snackbarData.message,
-                    isRtl = true,
-                    containerColor = white
+                    snackbarData.message
                 )
             }
 

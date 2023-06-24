@@ -54,7 +54,7 @@ afterEvaluate {
                 from components.release
 
                 groupId = 'com.github.emunsi'
-                artifactId = 'ethOSLibrary'
+                artifactId = 'ethos-component-library'
                 version = '1.0'
             }
         }
