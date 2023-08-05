@@ -96,7 +96,7 @@ fun ethOSDropDownMenu(
     //initiallyOpened: Boolean = false,
 ) {
     var textfieldSize by remember { mutableStateOf(Size.Zero)}
-    Column() {
+    Column {
         OutlinedTextField(
             colors = TextFieldDefaults.textFieldColors(unfocusedIndicatorColor=blue,textColor = white, trailingIconColor = white, backgroundColor = blue),
             readOnly = true,

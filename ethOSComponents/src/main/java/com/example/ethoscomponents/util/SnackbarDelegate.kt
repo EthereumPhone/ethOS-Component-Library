@@ -70,8 +70,8 @@ class SnackbarDelegate(
             SnackbarState.WARNING -> R.drawable.outline_warning_24
         }
 
-        coroutineScope?.launch {
-            snackbarHostState?.showSnackbar(message, actionLabel, duration)
+        coroutineScope.launch {
+            snackbarHostState.showSnackbar(message, actionLabel, duration)
         }
     }
 
