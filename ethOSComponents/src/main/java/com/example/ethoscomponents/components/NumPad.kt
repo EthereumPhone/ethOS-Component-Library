@@ -1,7 +1,11 @@
 package com.example.ethoscomponents.components
 
+import android.graphics.drawable.Drawable
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 
 import androidx.compose.material.Text
@@ -17,8 +21,12 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
+import androidx.compose.material.Icon
 import androidx.compose.material.icons.rounded.ArrowBack
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.ethoscomponents.R
 import com.example.ethoscomponents.util.IconAsText
 
 
@@ -61,11 +69,13 @@ fun NumPad(
 
                 if(input is ImageVector) {
                     Box(
-                        modifier = Modifier.size(32.dp)
+                        modifier = Modifier.size(32.dp),
+                        contentAlignment = Alignment.Center
                     ) {
-                        IconAsText(
-                            icon = input,
-                            modifier = Modifier.align(Alignment.BottomCenter)
+                        Icon(
+                            tint= Color.White,
+                            painter = painterResource(id = R.drawable.baseline_backspace_24),
+                            contentDescription = null // decorative element
                         )
                     }
                 }
