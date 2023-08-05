@@ -67,7 +67,7 @@ fun GreetingPreview() {
         val sdeg = rememberSnackbarDelegate(hostState,scope)
 
         //Textfield
-        Box {
+        Box() {
             Column (
 
                 modifier = Modifier

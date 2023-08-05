@@ -20,8 +20,8 @@ fun ethOSTag(
     header: String,
     primary: Boolean = true
 ){
-    var background = if(primary) white else blue
-    var textColor = if(primary) blue else white
+    var background = if(primary) white else blue;
+    var textColor = if(primary) blue else white;
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.clip(RoundedCornerShape(4.dp)).background(background).padding(2.dp)

@@ -104,7 +104,7 @@ fun ethOSListItem(
             }
 
             Spacer(modifier = Modifier.width(14.dp))
-            Column {
+            Column() {
                 Text(
                     text = header,
                     color = colorOnBackground,

@@ -197,7 +197,7 @@ fun ethOSSnackbarHost(
     delegate: SnackbarDelegate,
     modifier: Modifier
 ) {
-    ethOSTheme {
+    ethOSTheme() {
             SnackbarHost(
                 modifier= modifier,
                 hostState = delegate.snackbarHostState
