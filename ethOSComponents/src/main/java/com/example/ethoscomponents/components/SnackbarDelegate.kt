@@ -1,26 +1,17 @@
-package com.example.componentlibrary.ui.components
+package com.example.ethoscomponents.components
 
-import androidx.compose.material.SnackbarDefaults
 import androidx.compose.material.SnackbarDuration
 import androidx.compose.material.SnackbarHostState
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.graphics.Color
-import com.example.componentlibrary.ui.theme.blue
-import com.example.componentlibrary.ui.theme.darkbrown
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import com.example.componentlibrary.ui.theme.error
-import com.example.componentlibrary.ui.theme.lightblue
-import com.example.componentlibrary.ui.theme.warning
-import com.example.componentlibrary.ui.theme.positive
-import com.example.componentlibrary.ui.theme.white
 import com.example.ethoscomponents.R
+import com.example.ethoscomponents.theme.Color
+
 
 enum class SnackbarState {
     DEFAULT,
@@ -39,9 +30,9 @@ class SnackbarDelegate(
     var snackbarState: SnackbarState = SnackbarState.DEFAULT
 
 
-    var snackbarBackgroundColor = lightblue
+    var snackbarBackgroundColor = Color.LIGHT_BLUE
 
-    var snackbarOnColor = white
+    var snackbarOnColor = Color.WHITE
 
     var snackbarIcon = R.drawable.outline_info_24
 
@@ -56,12 +47,12 @@ class SnackbarDelegate(
         this.snackbarState = state
 
         this.snackbarBackgroundColor = when (this.snackbarState) {
-            SnackbarState.DEFAULT -> lightblue
-            SnackbarState.ERROR -> error
-            SnackbarState.SUCCESS -> positive
-            SnackbarState.WARNING -> warning
+            SnackbarState.DEFAULT -> Color.LIGHT_BLUE
+            SnackbarState.ERROR -> Color.ERROR
+            SnackbarState.SUCCESS -> Color.SUCCESS
+            SnackbarState.WARNING -> Color.WARNING
         }
-        this.snackbarOnColor = if( snackbarState == SnackbarState.WARNING ) darkbrown else white
+        this.snackbarOnColor = if( snackbarState == SnackbarState.WARNING) Color.GRAY else Color.WHITE
 
         this.snackbarIcon = when (this.snackbarState) {
             SnackbarState.DEFAULT -> R.drawable.outline_info_24
