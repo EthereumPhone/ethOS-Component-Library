@@ -12,6 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "ComponentLibrary"
-include ':app'
-include ':ethOSComponents'
+rootProject.name = 'ethos-component-library'
+include ':demo'
+include ':library'
