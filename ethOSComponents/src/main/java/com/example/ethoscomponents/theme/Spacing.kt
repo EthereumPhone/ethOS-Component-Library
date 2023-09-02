@@ -1,4 +1,4 @@
-package com.example.componentlibrary.ui.theme
+package com.example.ethoscomponents.theme
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable

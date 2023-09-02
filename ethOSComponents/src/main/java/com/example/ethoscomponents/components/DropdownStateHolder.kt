@@ -1,7 +1,6 @@
-package com.example.componentlibrary.ui.components
+package com.example.ethoscomponents.components
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.runtime.Composable

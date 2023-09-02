@@ -1,4 +1,4 @@
-package com.example.componentlibrary.ui.components
+package com.example.ethoscomponents.components
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -18,7 +18,6 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -26,9 +25,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 //import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.componentlibrary.ui.theme.blue
-import com.example.componentlibrary.ui.theme.ethOSTheme
-import com.example.componentlibrary.ui.theme.white
 
 @Composable
 fun ethOSNetworkPill(
