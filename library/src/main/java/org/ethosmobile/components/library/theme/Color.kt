@@ -17,5 +17,7 @@ class Color {
         val DARK_BROWN = Color(0xFF3A2A0A)
         val TRANSPARENT = Color(0x00000000)
         val BLACK = Color(0xFF000000)
+        val UGLY_GREEN = Color(0xFF73A213)
+        val SWITCH_GREEN = Color(0xFF94DE7E)
     }
 }
