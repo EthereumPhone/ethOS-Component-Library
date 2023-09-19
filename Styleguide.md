@@ -29,11 +29,13 @@ Width: min. 127dp - „max-width“
 
 **Extra**
 Centered horizontally & vertically 
-10.dp space between Icons
+10.dp space between Icon and Text
 
 
 ### Basic Buttons
 #### Swipe button
+
+![[Bildschirm­foto 2023-09-19 um 16.01.36.png]]
 
 **Purpose**
 sending/signing a transaction, or showing a private key or seed phrase
@@ -46,6 +48,8 @@ Icon Color: #FFFFFF
 
 #### Primary button
 
+![[Bildschirm­foto 2023-09-19 um 16.03.27.png]]
+
 **Purpose**
 execute primary functions, open System-UI dialogs
 
@@ -55,7 +59,7 @@ Text Color: #24303D
 Icon Color: #24303D
 
 #### Secondary button
-
+![[Bildschirm­foto 2023-09-19 um 16.06.41.png]]
 **Purpose**
 execute secondary functions, open System-UI dialogs
 
@@ -65,6 +69,8 @@ Text Color: #FFFFFF
 Icon Color: #FFFFFF
 
 #### Disabled button
+
+![[Bildschirm­foto 2023-09-19 um 16.05.14.png]]
 
 **Purpose**
 displaying the inactivity of a button
@@ -78,6 +84,8 @@ Icon Color: #24303D
 
 ### Advanced Buttons
 #### Circularbutton
+
+![[Bildschirm­foto 2023-09-19 um 16.07.23.png]]
 
 **Purpose**
 navigates to different to different parts of an app, usually in a group
@@ -108,6 +116,8 @@ IconButton, Icon, Column, Text
 
 
 #### Tagbutton
+
+![[Bildschirm­foto 2023-09-19 um 16.09.06.png]]
 
 **Purpose**
 opening a list of options and displaying the selected option
@@ -159,6 +169,7 @@ Text Color: #FFFFFF
 
 #### Info Dialog
 
+![[Bildschirm­foto 2023-09-19 um 16.12.56.png]]
 **Purpose**
 inform or warn user about aspects about the app
 
@@ -203,6 +214,7 @@ RoundedCornerShape:  16dp
 **Components used**
 Dialog, Surface, Box, Column, Icon, Text, Spacer *(optional)*
 
+**Details**
 
 ## Textfields
 #### Core details for Textfields
@@ -238,7 +250,7 @@ BasicTextField, Row, Box, Spacer
 
 
 #### Textfield w/ trailing icon with action
-
+![[Bildschirm­foto 2023-09-19 um 16.25.53.png]]
 **Dimension**
 height: 64.dp
 
@@ -258,10 +270,24 @@ Icon
 **Dimension**
 min-height: 100.dp
 
+## ImageBox
 
+![[Bildschirm­foto 2023-09-19 um 16.29.20.png]]
+**Colors**
+Background Color: #24303D
+Text Color: #FFFFFF 
 
+**Shape**
+RoundedCornerShape:  24dp
 
+**Text - Font Style**
+font-size: 18.sp
+font-family: Inter
+font-weight: FontWeight.SemiBold
 
+**Icons**
+Library: Icons.Outlined
+Size: 28dp
 
 ## Cards
 
@@ -301,6 +327,8 @@ RoundedCornerShape: 16dp
 
 #### Dropdown (Normal)
 
+![[Bildschirm­foto 2023-09-19 um 16.36.53.png]]
+
 **Purpose**
 select between options
 
@@ -329,6 +357,7 @@ Surface, Row, Box, Column, DropdownMenu, DropdownMenuItem
 
 ## Switch
 
+![[Bildschirm­foto 2023-09-19 um 16.36.19.png]]
 **Purpose**
 allows users to turn sates ON or OFF
 
@@ -358,6 +387,8 @@ BoxWithConstraints, Row, Box, Text, Spacer
 ## Listitem
 
 #### ListItem (Normal)
+
+![[Bildschirm­foto 2023-09-19 um 16.42.03.png]]
 
 **Purpose**
 displays a row of information
@@ -408,6 +439,9 @@ Card(optional), Row, Column, Icon, Box
 
 #### ExpandableListItem
 
+![[Bildschirm­foto 2023-09-19 um 16.47.34.png]]
+![[Bildschirm­foto 2023-09-19 um 16.48.02.png]]
+
 **Purpose**
 displays a row of information, mostly assets, with expandable information associated with the item
 
@@ -442,8 +476,6 @@ CornerRadius: RoundedCornerShape(12.dp)
 **Components used**
 AnimatedVisibility, Iconbutton, Column, ListItem, Text
 
-
-
 ## Tab
 
 **Purpose**
@@ -454,7 +486,6 @@ Background Color: #24303D
 Background Text Color: #FFFFFF 
 Selected Background Color: #FFFFFF 
 Selected Background Text Color: #24303D 
-
 
 **Shape**
 Corner-radius: RoundedCornerShape(50%)
