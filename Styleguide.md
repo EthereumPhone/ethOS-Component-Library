@@ -47,9 +47,10 @@ Centered horizontally & vertically 
 
 
 ### Basic Buttons
-#### Swipe button
+### Swipe button
 
-![[Bildschirm­foto 2023-09-19 um 16.01.36.png]]
+
+<img width="538" alt="Bildschirm_foto 2023-09-19 um 16 01 36" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/2849f602-6322-405b-99d6-efc1be2594aa">
 
 **Purpose**
 sending/signing a transaction, or showing a private key or seed phrase
@@ -60,9 +61,10 @@ Text Color: #24303D
 Icon-background Color: #24303D
 Icon Color: #FFFFFF
 
-#### Primary button
+### Primary button
 
-![[Bildschirm­foto 2023-09-19 um 16.03.27.png]]
+
+<img width="426" alt="Bildschirm_foto 2023-09-19 um 16 03 27" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/3f6c3350-b372-4ed0-829a-803d9a4d8991">
 
 **Purpose**
 execute primary functions, open System-UI dialogs
@@ -72,8 +74,10 @@ Background Color: #FFFFFF
 Text Color: #24303D
 Icon Color: #24303D
 
-#### Secondary button
-![[Bildschirm­foto 2023-09-19 um 16.06.41.png]]
+### Secondary button
+
+<img width="418" alt="Bildschirm_foto 2023-09-19 um 16 06 41" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/8c93c303-77dd-43c9-9ebb-1e4f16dbbda7">
+
 **Purpose**
 execute secondary functions, open System-UI dialogs
 
@@ -82,12 +86,13 @@ Background Color: #24303D
 Text Color: #FFFFFF
 Icon Color: #FFFFFF
 
-#### Disabled button
+### Disabled button
 
-![[Bildschirm­foto 2023-09-19 um 16.05.14.png]]
+<img width="419" alt="Bildschirm_foto 2023-09-19 um 16 05 14" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/522c3890-bc36-4365-8440-928aac2b39b6">
 
 **Purpose**
 displaying the inactivity of a button
+
 
 **Colors**
 Background Color: #9FA2A5
@@ -97,9 +102,10 @@ Icon Color: #24303D
 
 
 ### Advanced Buttons
-#### Circularbutton
+### Circularbutton
 
-![[Bildschirm­foto 2023-09-19 um 16.07.23.png]]
+<img width="140" alt="Bildschirm_foto 2023-09-19 um 16 07 23" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/766b79d5-f839-46b1-a8c6-cf0227bd8ca1">
+
 
 **Purpose**
 navigates to different to different parts of an app, usually in a group
@@ -129,9 +135,10 @@ CircleShape
 IconButton, Icon, Column, Text
 
 
-#### Tagbutton
+### Tagbutton
 
-![[Bildschirm­foto 2023-09-19 um 16.09.06.png]]
+<img width="185" alt="Bildschirm_foto 2023-09-19 um 16 09 06" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/1e21254e-a404-449f-a791-22fc1e0768ec">
+
 
 **Purpose**
 opening a list of options and displaying the selected option
@@ -154,7 +161,7 @@ CircleShape
 **Components used**
 Button, Row, Text
 
-#### Iconbutton
+### Iconbutton
 
 **Purpose**
 enabling a simple action, described with an icon
@@ -171,7 +178,9 @@ IconButton, Icon
 
 ## Dialogs
 
-#### System UI Dialog
+### System UI Dialog
+
+(Image coming Soon)
 
 **Purpose**
 System UI
@@ -181,9 +190,10 @@ Title Color: #FFFFFF
 Heading Color: #FFFFFF
 Text Color: #FFFFFF 
 
-#### Info Dialog
+### Info Dialog
 
-![[Bildschirm­foto 2023-09-19 um 16.12.56.png]]
+<img width="328" alt="Bildschirm_foto 2023-09-19 um 16 12 56" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/9c7a77d0-4642-4101-a9c1-fd02827eac81">
+
 **Purpose**
 inform or warn user about aspects about the app
 
@@ -231,7 +241,7 @@ Dialog, Surface, Box, Column, Icon, Text, Spacer *(optional)*
 **Details**
 
 ## Textfields
-#### Core details for Textfields
+### Core details for Textfields
 
 **Colors**
 Background Color: #24303D
@@ -263,15 +273,19 @@ font-weight: FontWeight.Normal
 BasicTextField, Row, Box, Spacer
 
 
-#### Textfield w/ trailing icon with action
-![[Bildschirm­foto 2023-09-19 um 16.25.53.png]]
+### Textfield w/ trailing icon with action
+
+<img width="430" alt="Bildschirm_foto 2023-09-19 um 16 25 53" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/88074f7a-066b-414b-b646-57ecd30cd6b0">
+
 **Dimension**
 height: 64.dp
 
 **Additional**
 (optional) Iconbutton or (optional) Tagbutton
 
-#### Textfield w/ leading icon without action
+### Textfield w/ leading icon without action
+
+<img width="409" alt="Bildschirm_foto 2023-09-19 um 17 44 47" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/5629d5b9-73f4-417b-b020-44a8b5a51d33">
 
 **Dimension**
 height: 64.dp
@@ -279,14 +293,15 @@ height: 64.dp
 **Additional**
 Icon
 
-#### TextArea
+### TextArea
 
 **Dimension**
 min-height: 100.dp
 
 ## ImageBox
 
-![[Bildschirm­foto 2023-09-19 um 16.29.20.png]]
+<img width="336" alt="Bildschirm_foto 2023-09-19 um 16 29 20" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/1c3d6b21-bba4-461e-97aa-e14af967e9de">
+
 **Colors**
 Background Color: #24303D
 Text Color: #FFFFFF 
@@ -304,6 +319,8 @@ Library: Icons.Outlined
 Size: 28dp
 
 ## Cards
+
+<img width="474" alt="Bildschirm_foto 2023-09-19 um 17 50 03" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/3d437302-7cc4-44db-b29c-759571e8ebf0">
 
 **Purpose**
 display information
@@ -339,9 +356,9 @@ RoundedCornerShape: 16dp
 
 ## Dropdowns
 
-#### Dropdown (Normal)
+### Dropdown (Normal)
 
-![[Bildschirm­foto 2023-09-19 um 16.36.53.png]]
+<img width="481" alt="Bildschirm_foto 2023-09-19 um 16 36 53" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/75a18362-8fa5-4e42-bf47-d9ce17758ae8">
 
 **Purpose**
 select between options
@@ -371,7 +388,8 @@ Surface, Row, Box, Column, DropdownMenu, DropdownMenuItem
 
 ## Switch
 
-![[Bildschirm­foto 2023-09-19 um 16.36.19.png]]
+<img width="298" alt="Bildschirm_foto 2023-09-19 um 16 36 19" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/6b60dabd-cc60-41f7-b8db-2a95e5284eaa">
+
 **Purpose**
 allows users to turn sates ON or OFF
 
@@ -400,9 +418,10 @@ BoxWithConstraints, Row, Box, Text, Spacer
 
 ## Listitem
 
-#### ListItem (Normal)
+### ListItem (Normal)
 
-![[Bildschirm­foto 2023-09-19 um 16.42.03.png]]
+<img width="442" alt="Bildschirm_foto 2023-09-19 um 16 42 03" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/3551d780-0170-44e1-8368-2090354dc8a5">
+
 
 **Purpose**
 displays a row of information
@@ -451,10 +470,11 @@ CornerRadius: RoundedCornerShape(12.dp)
 **Components used**
 Card(optional), Row, Column, Icon, Box
 
-#### ExpandableListItem
+### ExpandableListItem
 
-![[Bildschirm­foto 2023-09-19 um 16.47.34.png]]
-![[Bildschirm­foto 2023-09-19 um 16.48.02.png]]
+<img width="449" alt="Bildschirm_foto 2023-09-19 um 16 47 34" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/40e42a8c-7575-49fa-babc-0418acfa65aa">
+
+<img width="387" alt="Bildschirm_foto 2023-09-19 um 16 48 02" src="https://github.com/EthereumPhone/ethOS-Component-Library/assets/31884918/447ff11a-66de-4221-8674-1a1fc5a61842">
 
 **Purpose**
 displays a row of information, mostly assets, with expandable information associated with the item
@@ -491,6 +511,7 @@ CornerRadius: RoundedCornerShape(12.dp)
 AnimatedVisibility, Iconbutton, Column, ListItem, Text
 
 ## Tab
+(Image coming soon)
 
 **Purpose**
 enable quick access to content
