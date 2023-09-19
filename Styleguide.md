@@ -153,7 +153,7 @@ font-family: Inter
 font-weight: FontWeight(600) / Semi-Bold
 
 **Padding** 
-contentPadding: 14dp (Horizontal), 0dp (Vertical)
+contentPadding: 16dp (Horizontal), 8dp (Vertical)
 
 **Shape**
 CircleShape
