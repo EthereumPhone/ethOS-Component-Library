@@ -1,3 +1,17 @@
+# Colors
+- DARK_BLUE : #1E2730
+- BLUE : #24303D
+- LIGHT_BLUE: #3C4958
+- SUCCESS: #1B7C12
+- UGLY_GREEN (For Non-.eth adresses): #73A213
+- SWITCH_GREEN (For Lightnode Switch): #94DE7E
+- WARNING: #FFB526
+- ERROR: #C63B3B
+- GRAY: #9FA2A5
+- WHITE: #FFFFFF
+- DARK_BROWN: #3A2A0A
+
+
 # Components
 
 ## Buttons
