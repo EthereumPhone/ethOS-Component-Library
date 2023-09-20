@@ -20,7 +20,7 @@
 Guideline for most buttons 
 
 **Font Style**
-font-size: 12.sp
+font-size: 18.sp
 line-height: 13.08.sp
 font-family: Inter
 font-weight: FontWeight(600) / Semi-Bold
