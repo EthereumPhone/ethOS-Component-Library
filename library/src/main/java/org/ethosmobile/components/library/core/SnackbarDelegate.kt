@@ -10,7 +10,7 @@ import androidx.compose.runtime.setValue
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.ethosmobile.components.library.R
-import org.ethosmobile.components.library.theme.Color
+import org.ethosmobile.components.library.theme.Colors
 
 
 enum class SnackbarState {
@@ -30,9 +30,9 @@ class SnackbarDelegate(
     var snackbarState: SnackbarState = SnackbarState.DEFAULT
 
 
-    var snackbarBackgroundColor = Color.LIGHT_BLUE
+    var snackbarBackgroundColor = Colors.LIGHT_BLUE
 
-    var snackbarOnColor = Color.WHITE
+    var snackbarOnColor = Colors.WHITE
 
     var snackbarIcon = R.drawable.outline_info_24
 
@@ -47,12 +47,12 @@ class SnackbarDelegate(
         this.snackbarState = state
 
         this.snackbarBackgroundColor = when (this.snackbarState) {
-            SnackbarState.DEFAULT -> Color.LIGHT_BLUE
-            SnackbarState.ERROR -> Color.ERROR
-            SnackbarState.SUCCESS -> Color.SUCCESS
-            SnackbarState.WARNING -> Color.WARNING
+            SnackbarState.DEFAULT -> Colors.LIGHT_BLUE
+            SnackbarState.ERROR -> Colors.ERROR
+            SnackbarState.SUCCESS -> Colors.SUCCESS
+            SnackbarState.WARNING -> Colors.WARNING
         }
-        this.snackbarOnColor = if( snackbarState == SnackbarState.WARNING) Color.GRAY else Color.WHITE
+        this.snackbarOnColor = if( snackbarState == SnackbarState.WARNING) Colors.GRAY else Colors.WHITE
 
         this.snackbarIcon = when (this.snackbarState) {
             SnackbarState.DEFAULT -> R.drawable.outline_info_24

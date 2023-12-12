@@ -3,7 +3,7 @@ package org.ethosmobile.components.library.theme
 import androidx.compose.ui.graphics.Color
 
 
-class Color {
+class Colors {
 
     companion object {
         val DARK_BLUE = Color(0xFF1E2730)
@@ -12,7 +12,8 @@ class Color {
         val SUCCESS = Color(0xFF1B7C12)
         val WARNING = Color(0xFFFFB526)
         val ERROR = Color(0xFFC63B3B)
-        val GRAY = Color(0xFF9FA2A5)
+        val GRAY = Color(0xFF8C8C8C)
+        val DARK_GRAY = Color(0xFF262626)
         val WHITE = Color(0xFFFFFFFF)
         val DARK_BROWN = Color(0xFF3A2A0A)
         val TRANSPARENT = Color(0x00000000)

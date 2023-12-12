@@ -9,14 +9,14 @@ import androidx.compose.runtime.CompositionLocalProvider
 
 
 private val ethOSScheme = darkColors(
-    primary = Color.DARK_BLUE,
-    secondary = Color.BLUE,
-    background = Color.DARK_BLUE,
-    surface = Color.BLUE,
-    onSurface = Color.WHITE,
-    onPrimary = Color.WHITE,
-    onSecondary = Color.WHITE,
-    onBackground = Color.WHITE
+    primary = Colors.DARK_BLUE,
+    secondary = Colors.BLUE,
+    background = Colors.DARK_BLUE,
+    surface = Colors.BLUE,
+    onSurface = Colors.WHITE,
+    onPrimary = Colors.WHITE,
+    onSecondary = Colors.WHITE,
+    onBackground = Colors.WHITE
 )
 
 

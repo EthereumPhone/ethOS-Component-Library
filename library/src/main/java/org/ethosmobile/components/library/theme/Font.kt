@@ -10,7 +10,7 @@ class Font {
 
     companion object {
 
-        val PRIMARY = FontFamily(
+        val INTER = FontFamily(
             Font(R.font.inter_light, FontWeight.Light),
             Font(R.font.inter_regular, FontWeight.Normal),
             Font(R.font.inter_medium, FontWeight.Medium),

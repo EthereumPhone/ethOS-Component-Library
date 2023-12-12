@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.toSize
 import org.ethosmobile.components.library.theme.ethOSTheme
-import org.ethosmobile.components.library.theme.Color
+import org.ethosmobile.components.library.theme.Colors
 
 
 @Composable
@@ -53,10 +53,10 @@ fun ethOSDropDownMenu(
     Column() {
         OutlinedTextField(
             colors = TextFieldDefaults.textFieldColors(
-                unfocusedIndicatorColor = Color.BLUE,
-                textColor = Color.WHITE,
-                trailingIconColor = Color.WHITE,
-                backgroundColor = Color.BLUE
+                unfocusedIndicatorColor = Colors.BLUE,
+                textColor = Colors.WHITE,
+                trailingIconColor = Colors.WHITE,
+                backgroundColor = Colors.BLUE
             ),
             readOnly = true,
             value = stateHolder.value,
@@ -65,7 +65,7 @@ fun ethOSDropDownMenu(
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(6.dp))
-                .background(Color.BLUE)
+                .background(Colors.BLUE)
                 .onGloballyPositioned { coordinates ->
                     //This value is used to assign to the DropDown the same width
                     textfieldSize = coordinates.size.toSize()
@@ -87,7 +87,7 @@ fun ethOSDropDownMenu(
                     stateHolder.onSelectedIndex(index)
                     stateHolder.onEnabled(false)
                 }) {
-                    Text(text = s, color = Color.WHITE, fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
+                    Text(text = s, color = Colors.WHITE, fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
                 }
             }
         }

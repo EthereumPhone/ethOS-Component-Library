@@ -1,7 +1,17 @@
 package org.ethosmobile.components.library.core
 
 //import androidx.compose.ui.tooling.preview.Preview
+import android.util.Log
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.TextField
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
@@ -10,70 +20,229 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.ethosmobile.components.library.theme.Color
 import org.ethosmobile.components.library.theme.Font
+import kotlin.math.max
 
 
 @Composable
-fun ethOSTextfield(
-    value: String,
-    placeholder: String,
-    readOnly: Boolean = false,
-    singeLine: Boolean = true,
-    maxLines: Int = Int.MAX_VALUE,
+fun ethOSCenterTextField(
+    text: String,
+    size: Int,
+    //focusRequester: FocusRequester? = null,
     modifier: Modifier = Modifier,
-    trailingIcon: @Composable (() -> Unit)? = null,
-    onChange: ((value: String) -> Unit)? = null) {
+    label: String = "",
+    singleLine: Boolean = false,//true,
+    onTextChanged: (String) -> Unit,
+    color: Color = Color.White
+) {
 
-    var text by remember { mutableStateOf(value) }
+    var isFocused by remember { mutableStateOf(false) }
+    //val focusRequester = FocusRequester()
+    var fontSize by remember { mutableStateOf(size.sp) }
 
-    TextField(
+
+
+    BasicTextField(
         value = text,
         onValueChange = {
-            text = it
-            if (onChange != null) {
-                onChange(it)
-            }
+            onTextChanged(it)
+            fontSize = size.sp
         },
-        placeholder = {
-            Text(
-                text = placeholder,
-                fontFamily = Font.PRIMARY,
-                fontWeight = FontWeight.Normal,
-                fontSize = 18.sp
-            )
-        },
-        textStyle = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.SemiBold),
-        readOnly = readOnly,
-        colors = TextFieldDefaults.textFieldColors(
-            backgroundColor = Color.BLUE,
-            textColor = Color.WHITE,
-            placeholderColor = Color.GRAY,
-            errorCursorColor= Color.ERROR,
-            unfocusedIndicatorColor = Color.TRANSPARENT,
-            focusedIndicatorColor = Color.TRANSPARENT
+        singleLine = singleLine,
+        minLines = 1,
+        maxLines = 2,
+        textStyle = LocalTextStyle.current.copy(
+            color = color,
+            textAlign = TextAlign.Center,
+            fontSize = fontSize,
+            fontWeight = FontWeight.SemiBold
         ),
-        shape = RoundedCornerShape(12.dp),
-        modifier = modifier,
-        singleLine = singeLine,
-        maxLines = maxLines,
-        trailingIcon = trailingIcon
-    )
+        modifier = Modifier.fillMaxWidth(),
+
+//            textStyle = TextStyle(
+////                textAlign = TextAlign.Center,
+////                fontSize =  24.sp,
+////                fontWeight = FontWeight.SemiBold,
+////            ),
+        cursorBrush = SolidColor(Color.White),
+//            modifier = modifier
+//                .clip(RoundedCornerShape(10))
+//                .background(Color.Magenta)
+//                .height(64.dp)
+
+
+    ) { innerTextField ->
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+            if (!isFocused && text.isEmpty()) {
+                Text(
+                    text = label,
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Medium,
+                    fontSize = size.sp,
+                    color = Color(0xFF9FA2A5),
+                    modifier = Modifier.fillMaxWidth()
+
+
+
+                )
+            }
+            innerTextField()
+        }
+    }
+
+
 }
 
-/*@Preview(showBackground = true)
 @Composable
-fun ethOSTextfieldPreview() {
-    ethOSTheme {
-        /*Column() {
-            ethOSTextfield(value="",placeholder="Amount")
-        }*/
-        ethOSTextfield(value = "", placeholder = "Placeholder")
+fun ethOSTextField(
+    text: String,
+    size: Int,
+    modifier: Modifier = Modifier,
+    label: String = "",
+    singleLine: Boolean = false,//true,
+    maxChar: Int = 42,
+    sizeCut: Int = 2,
+    numberInput: Boolean = false,
+    onTextChanged: (String) -> Unit,
+    color: Color = Color.White
+) {
 
+    var isFocused by remember { mutableStateOf(false) }
+    var fontSize by remember { mutableStateOf(size.sp) }
+
+
+    BasicTextField(
+        value = text,
+        onValueChange = {
+            if(it.length < maxChar){
+                onTextChanged(it)
+            }
+
+            fontSize = size.sp
+
+        },
+        keyboardOptions = if(numberInput) KeyboardOptions(keyboardType = KeyboardType.Number) else KeyboardOptions(keyboardType = KeyboardType.Text),
+        singleLine = singleLine,
+        minLines = 1,
+        maxLines = 2,
+        textStyle = LocalTextStyle.current.copy(
+            fontFamily = Font.INTER,
+            color = color,
+            fontSize = calculateFontSize(text.length,size,sizeCut),
+            fontWeight = FontWeight.SemiBold
+        ),
+        modifier = Modifier.width(IntrinsicSize.Min),
+        cursorBrush = SolidColor(Color.White),
+
+
+
+    ) { innerTextField ->
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+            if (!isFocused && text.isEmpty()) {
+                Text(
+                    text = label,
+                    textAlign = TextAlign.Start,
+                    fontWeight = FontWeight.Medium,
+                    fontSize = size.sp,
+                    color = Color(0xFF9FA2A5),
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+            innerTextField()
+        }
     }
-}*/
+
+
+}
+
+fun calculateFontSize(length: Int, defaultSize: Int, maxChar: Int ): TextUnit {
+    val defaultFontSize = defaultSize.sp
+    val maxChars = maxChar
+    val scaleFactor = 0.8
+
+    var adjustedSize = if (length > maxChars) {
+        val scaledSize = (defaultFontSize * scaleFactor).value
+        val minValue = 12f // Minimum font size
+        val result = max(scaledSize, minValue)
+        result.sp
+    } else {
+        defaultFontSize
+    }
+
+    if (length > maxChars*2) {
+        val scaledSize = (adjustedSize * scaleFactor).value
+        val minValue = 12f // Minimum font size
+        val result = max(scaledSize, minValue)
+        adjustedSize = result.sp
+        Log.e("Length: ", "${ adjustedSize }")
+    }
+
+    if (length > maxChars*3) {
+        val scaledSize = (adjustedSize * scaleFactor).value
+        val minValue = 12f // Minimum font size
+        val result = max(scaledSize, minValue)
+        adjustedSize = result.sp
+        Log.e("Length: ", "${ adjustedSize }")
+    }
+
+//    if (length > (maxChars*2) - 15) {
+//        val scaledSize = (adjustedSize * scaleFactor).value
+//        val minValue = 12f // Minimum font size
+//        val result = max(scaledSize, minValue)
+//        adjustedSize = result.sp
+//    }
+    return adjustedSize
+}
+
+
+
+@Preview
+@Composable
+fun PreviewTextField() {
+
+    var test by remember { mutableStateOf("") }//0x2ade3187F051796542aF4f320c430fF9Bdd9507F
+    val focusRequester = remember { FocusRequester() }
+    //val focusManager = LocalFocusManager.current
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        ethOSTextField(
+            text = test,
+            size = 64,
+            label = "0",
+            onTextChanged = { value -> test = value }
+
+//                modifier = Modifier.fillMaxWidth(),
+
+
+
+        )
+        //TextField(value = test, onValueChange = {test = it})
+    }
+
+}

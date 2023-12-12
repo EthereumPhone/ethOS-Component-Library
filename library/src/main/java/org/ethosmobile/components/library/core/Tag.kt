@@ -11,7 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import org.ethosmobile.components.library.theme.Color
+import org.ethosmobile.components.library.theme.Colors
 
 
 @Composable
@@ -19,8 +19,8 @@ fun ethOSTag(
     header: String,
     primary: Boolean = true
 ){
-    var background = if(primary) Color.WHITE else Color.BLUE;
-    var textColor = if(primary) Color.BLUE else Color.WHITE;
+    var background = if(primary) Colors.WHITE else Colors.BLUE;
+    var textColor = if(primary) Colors.BLUE else Colors.WHITE;
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.clip(RoundedCornerShape(4.dp)).background(background).padding(2.dp)
