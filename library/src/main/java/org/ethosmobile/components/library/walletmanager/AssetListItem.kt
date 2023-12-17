@@ -51,7 +51,7 @@ fun AssetListItem(
 
                     Text(assets.get(0).symbol.uppercase(), color = Colors.WHITE, fontSize = 18.sp, fontWeight = FontWeight.Medium)
                 }
-                Text("\$TODO", color = Colors.GRAY,fontSize = 18.sp, fontWeight = FontWeight.Medium )
+                Text("\$TODO", color = Colors.GRAY,fontSize = 18.sp, fontWeight = FontWeight.Medium)
             }
             Spacer(modifier = Modifier.width(24.dp))
 
