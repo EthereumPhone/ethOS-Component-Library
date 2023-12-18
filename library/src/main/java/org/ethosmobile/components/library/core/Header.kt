@@ -1,9 +1,12 @@
 package org.ethosmobile.components.library.core
 
+import android.net.Network
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -86,7 +89,7 @@ fun Header(
                 modifier = modifier.weight(1f),
                 textAlign = TextAlign.Center,
                 text = title,
-                fontSize = 28.sp,
+                fontSize = 32.sp,
                 color = Color.White,
                 fontWeight = FontWeight.SemiBold
             )
@@ -103,30 +106,11 @@ fun Header(
                 if (isTrailContent){
                     trailContent()
                 }
-//                IconButton(
-//                    onClick = onTrailIconClick,
-//                    //modifier=Modifier.background(Color.Red)
-//                ) {
-//                    Icon(
-//                        imageVector = trailIcon,
-//                        contentDescription = "Go back",
-//                        tint =  Colors.WHITE,
-//                        modifier = modifier.size(32.dp)
-//                    )
-//                }
             }
         }
         if (isBottomContent){
-//            Text(
-//                text = bottomText,
-//                color= Colors.GRAY,
-//                fontSize = 18.sp,
-//                fontWeight = FontWeight.Medium
-//            )
             bottomContent()
         }
-
-
     }
     //Divider(color = Colors.DARK_GRAY)
 }
@@ -135,12 +119,26 @@ fun Header(
 @Preview
 @Composable
 fun PreviewHeader() {
-//    Header(
-//        title = "Send",
-//        isBackButton = true,
-//        isTrailContent = false,
-//        onTrailIconClick = {},
-//        isBottomContent = true,
-//        bottomContent = {  }
-//    )
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Colors.BLACK)//.padding(start = 24.dp, end = 24.dp)
+    ) {
+        Header(
+            title = "Send",
+            isBackButton = false,
+            isTrailContent = false,
+            trailContent = { },
+            isBottomContent = true,
+            bottomContent = {
+                Spacer(modifier = Modifier.height(12.dp))
+                ethOSNetworkPill(
+                    address = "0xfebo235b5kcten3452b45b4o",
+                    network="Mainnet",
+                    chainColor=Colors.ERROR
+                )
+            }
+        )
+    }
+
 }

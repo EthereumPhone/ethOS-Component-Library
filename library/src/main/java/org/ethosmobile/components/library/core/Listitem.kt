@@ -12,9 +12,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -33,7 +34,11 @@ import org.ethosmobile.components.library.R
 import androidx.compose.ui.graphics.Color as GraphicsColor
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import org.ethosmobile.components.library.theme.Colors
+import org.ethosmobile.components.library.theme.Font
 
 /*@Composable
 @Preview
@@ -60,12 +65,12 @@ fun ethOSListItemsPreview() {
 @Composable
 fun ethOSListItem(
     @DrawableRes drawableRes: Int = R.drawable.baseline_person_outline_24,
-    header: String,
-    subheader: String,
-    chatListItem: Boolean,
-    backgroundColor: Color = Colors.BLUE,
+    header: String = "Header",
+    subheader: String = "Subheader",
+    chatListItem: Boolean = false,
+    backgroundColor: Color = Colors.TRANSPARENT,
     colorOnBackground: Color = Colors.WHITE,
-    msgnumber: Int
+    msgnumber: Int = 0
 
 ) {
     Row(
@@ -84,15 +89,15 @@ fun ethOSListItem(
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
-                    .clip(RoundedCornerShape(12.dp))
-                    .background(Colors.LIGHT_BLUE)
+                    .clip(CircleShape)
+                    .background(Colors.DARK_GRAY)
                     .size(64.dp)
             ) {
                 Image(
                     painter = painterResource(id = drawableRes),
                     contentDescription = "",
                     modifier = Modifier
-                        .size(48.dp),
+                        .size(36.dp),
                     colorFilter = ColorFilter.tint(Colors.GRAY)
                 )
             }
@@ -102,13 +107,23 @@ fun ethOSListItem(
                 Text(
                     text = header,
                     color = colorOnBackground,
-                    style = MaterialTheme.typography.h5
+                    style = TextStyle(
+                        color = Colors.WHITE,
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        fontFamily = Font.INTER,
+                    )
                 )
                 if(chatListItem){
                     Text(
                         text = subheader,
                         color = Colors.GRAY,
-                        style = MaterialTheme.typography.body2
+                        style = TextStyle(
+                            color = Colors.GRAY,
+                            fontSize = 24.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            fontFamily = Font.INTER,
+                        )
                     )
                 }
 
@@ -122,7 +137,12 @@ fun ethOSListItem(
                 Text(
                     text = "0:00AM",
                     color = Colors.GRAY,
-                    style = MaterialTheme.typography.body2
+                    style = TextStyle(
+                        color = Colors.GRAY,
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        fontFamily = Font.INTER,
+                    )
                 )
                 ethOSTag(header = ""+msgnumber, primary = true)
 
@@ -158,21 +178,23 @@ fun ModalListItem(
 fun PreviewWmListItem() {
     var text by remember { mutableStateOf("123123") }
 
-    ModalListItem(
-        {
-            Row {
-                Text(
-                    text = text,
-                    modifier = Modifier.weight(1f)
-                )
-                Column {
+//    ModalListItem(
+//        {
+//            Row {
+//                Text(
+//                    text = text,
+//                    modifier = Modifier.weight(1f)
+//                )
+//                Column {
+//
+//                }
+//
+//                Text(text)
+//            }
+//
+//        },
+//    )
 
-                }
-
-                Text(text)
-            }
-
-        },
-    )
+    ethOSListItem()
 }
 

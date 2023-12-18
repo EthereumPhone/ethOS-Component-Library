@@ -1,7 +1,7 @@
 package org.ethosmobile.components.library.core
 
-import androidx.compose.material.SnackbarDuration
-import androidx.compose.material.SnackbarHostState
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,7 +30,7 @@ class SnackbarDelegate(
     var snackbarState: SnackbarState = SnackbarState.DEFAULT
 
 
-    var snackbarBackgroundColor = Colors.LIGHT_BLUE
+    var snackbarBackgroundColor = Colors.DARK_GRAY
 
     var snackbarOnColor = Colors.WHITE
 
@@ -47,12 +47,12 @@ class SnackbarDelegate(
         this.snackbarState = state
 
         this.snackbarBackgroundColor = when (this.snackbarState) {
-            SnackbarState.DEFAULT -> Colors.LIGHT_BLUE
+            SnackbarState.DEFAULT -> Colors.DARK_GRAY
             SnackbarState.ERROR -> Colors.ERROR
             SnackbarState.SUCCESS -> Colors.SUCCESS
             SnackbarState.WARNING -> Colors.WARNING
         }
-        this.snackbarOnColor = if( snackbarState == SnackbarState.WARNING) Colors.GRAY else Colors.WHITE
+        this.snackbarOnColor = if( snackbarState == SnackbarState.WARNING) Colors.DARK_BROWN else Colors.WHITE
 
         this.snackbarIcon = when (this.snackbarState) {
             SnackbarState.DEFAULT -> R.drawable.outline_info_24
@@ -62,7 +62,7 @@ class SnackbarDelegate(
         }
 
         coroutineScope?.launch {
-            snackbarHostState?.showSnackbar(message, actionLabel, duration)
+            snackbarHostState?.showSnackbar(message=message, actionLabel=actionLabel, withDismissAction=true,duration=duration)
         }
     }
 
