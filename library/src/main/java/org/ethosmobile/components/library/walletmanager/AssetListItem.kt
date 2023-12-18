@@ -27,6 +27,7 @@ import java.text.DecimalFormat
 fun AssetListItem(
     title: String,
     assets: List<TokenAsset>,
+    fiatAmount: String = "\$TODO",
     linkTo: () -> Unit = {},
 ){
     Row(
@@ -51,7 +52,7 @@ fun AssetListItem(
 
                     Text(assets.get(0).symbol.uppercase(), color = Colors.WHITE, fontSize = 18.sp, fontWeight = FontWeight.Medium)
                 }
-                Text("\$TODO", color = Colors.GRAY,fontSize = 18.sp, fontWeight = FontWeight.Medium)
+                Text(fiatAmount, color = Colors.GRAY,fontSize = 18.sp, fontWeight = FontWeight.Medium)
             }
             Spacer(modifier = Modifier.width(24.dp))
 

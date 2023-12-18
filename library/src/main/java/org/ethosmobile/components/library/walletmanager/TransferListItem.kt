@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -23,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.ethosmobile.components.library.models.TransferItem
@@ -33,6 +35,7 @@ import org.ethosmobile.components.library.theme.Colors
 fun TransferListItem(
     modifier: Modifier = Modifier,
     transfer: TransferItem,
+    fiatAmount: String = "\$TODO",
     onCardClick: () -> Unit = {}
 ) {
 
@@ -88,7 +91,7 @@ fun TransferListItem(
                         )
                         Text(transfer.asset, fontSize = 18.sp, fontWeight = FontWeight.Medium, color = icontint)
                     }
-                    Text("\$TODO", color = Colors.GRAY, fontSize = 18.sp, fontWeight = FontWeight.Medium )
+                    Text(fiatAmount, color = Colors.GRAY, fontSize = 18.sp, fontWeight = FontWeight.Medium )
                 }
 
                 Spacer(modifier = Modifier.width(24.dp))
@@ -111,5 +114,29 @@ fun TransferListItem(
     }
 
 
+
+}
+@Composable
+@Preview
+fun TransferListItemPreview(
+) {
+    Column(
+        modifier = Modifier.fillMaxSize().background(Colors.BLACK).padding(24.dp)
+    ) {
+        TransferListItem(
+            fiatAmount = "$0.00",
+            transfer= TransferItem(
+                chainId = 5,
+                from = "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
+                to =  "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
+                asset = "ETH",
+                value = "2.24",
+                timeStamp = "10-19-01",//Clock.System.now().toString(),
+                userSent = false,
+                txHash= "pfpfnopjfpfn",
+            ),
+            onCardClick = {}
+        )
+    }
 
 }

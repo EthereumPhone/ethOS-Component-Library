@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.sp
 fun SimpleAssetListItem(
     title: String,
     value: Double,
+    fiatAmount: String = "\$TODO",
 ) {
 
     Row(
@@ -23,6 +24,6 @@ fun SimpleAssetListItem(
     ) {
         Text(text = title.uppercase(),  fontWeight = FontWeight.SemiBold, fontSize = 18.sp, modifier = Modifier.weight(0.4f), color = Color.White)
         Text(text = "${value}", fontWeight = FontWeight.Medium, fontSize = 18.sp, textAlign = TextAlign.End, modifier = Modifier.weight(0.30f), color = Color.White )
-        Text(text = "\$TODO", fontWeight = FontWeight.Medium, fontSize = 18.sp, textAlign = TextAlign.End, modifier = Modifier.weight(0.30f), color = Color(0xFF9FA2A5))
+        Text(text = fiatAmount, fontWeight = FontWeight.Medium, fontSize = 18.sp, textAlign = TextAlign.End, modifier = Modifier.weight(0.30f), color = Color(0xFF9FA2A5))
     }
 }

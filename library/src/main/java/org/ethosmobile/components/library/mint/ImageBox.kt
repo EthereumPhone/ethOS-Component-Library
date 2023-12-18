@@ -7,6 +7,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.R
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -21,15 +24,17 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.ethosmobile.components.library.core.dashedBorder
+import org.ethosmobile.components.library.models.TokenAsset
 import org.ethosmobile.components.library.theme.Colors
 import org.ethosmobile.components.library.theme.Font
 
 @Composable
 fun ImageBox(
-    modifier: Modifier,
+    modifier: Modifier= Modifier,
     onClick: () -> Unit
 ) {
 
@@ -60,14 +65,14 @@ fun ImageBox(
             ) {
                 Icon(
                     Icons.Outlined.Image,
-                    contentDescription = "Select image",
+                    contentDescription = "Select Image",
                     tint = Colors.GRAY,
                     modifier = Modifier
-                        .size(28.dp)
+                        .size(36.dp)
                 )
-                Spacer(modifier = Modifier.width(8.dp))
+                Spacer(modifier = Modifier.width(18.dp))
                 Text(
-                    text = "Select image",
+                    text = "Select Image",
                     fontSize = 18.sp,
                     color = Colors.GRAY,
                     fontWeight = FontWeight.SemiBold,
@@ -76,4 +81,18 @@ fun ImageBox(
             }
         }
     }
+}
+
+@Composable
+@Preview
+fun ImageBoxPreview(
+){
+    Column (
+
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.height(300.dp).fillMaxWidth().padding(12.dp)//
+    ){
+        ImageBox(onClick={})
+    }
+
 }
