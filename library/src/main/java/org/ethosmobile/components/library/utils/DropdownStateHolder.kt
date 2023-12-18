@@ -1,4 +1,4 @@
-package org.ethosmobile.components.library.core
+package org.ethosmobile.components.library.utils
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown

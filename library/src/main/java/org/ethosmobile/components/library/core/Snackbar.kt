@@ -17,7 +17,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Snackbar
 import androidx.compose.material3.SnackbarData
 import androidx.compose.material3.SnackbarHost
@@ -38,6 +37,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
 import org.ethosmobile.components.library.R
+import org.ethosmobile.components.library.utils.SnackbarDelegate
+import org.ethosmobile.components.library.utils.SnackbarState
+import org.ethosmobile.components.library.utils.rememberSnackbarDelegate
 import org.ethosmobile.components.library.theme.Colors
 import org.ethosmobile.components.library.theme.Font
 import org.ethosmobile.components.library.theme.ethOSTheme

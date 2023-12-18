@@ -1,4 +1,4 @@
-package org.ethosmobile.components.library.core
+package org.ethosmobile.components.library.utils
 
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHostState

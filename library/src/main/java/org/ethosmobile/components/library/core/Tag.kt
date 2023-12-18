@@ -21,7 +21,7 @@ import org.ethosmobile.components.library.theme.Colors
 fun ethOSTag(
     header: String,
     primary: Boolean = true,
-    size: Int = 12
+    size: Int = 14
 ){
     var background = if(primary) Colors.WHITE else Colors.BLACK;
     var textColor = if(primary) Colors.BLACK else Colors.WHITE;

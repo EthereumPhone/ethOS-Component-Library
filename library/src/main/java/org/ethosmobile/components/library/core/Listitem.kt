@@ -67,7 +67,7 @@ fun ethOSListItem(
     @DrawableRes drawableRes: Int = R.drawable.baseline_person_outline_24,
     header: String = "Header",
     subheader: String = "Subheader",
-    chatListItem: Boolean = false,
+    chatListItem: Boolean = true,
     backgroundColor: Color = Colors.TRANSPARENT,
     colorOnBackground: Color = Colors.WHITE,
     msgnumber: Int = 0
@@ -109,7 +109,7 @@ fun ethOSListItem(
                     color = colorOnBackground,
                     style = TextStyle(
                         color = Colors.WHITE,
-                        fontSize = 24.sp,
+                        fontSize = 20.sp,
                         fontWeight = FontWeight.SemiBold,
                         fontFamily = Font.INTER,
                     )
@@ -120,8 +120,8 @@ fun ethOSListItem(
                         color = Colors.GRAY,
                         style = TextStyle(
                             color = Colors.GRAY,
-                            fontSize = 24.sp,
-                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Medium,
                             fontFamily = Font.INTER,
                         )
                     )
@@ -139,8 +139,8 @@ fun ethOSListItem(
                     color = Colors.GRAY,
                     style = TextStyle(
                         color = Colors.GRAY,
-                        fontSize = 24.sp,
-                        fontWeight = FontWeight.SemiBold,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Medium,
                         fontFamily = Font.INTER,
                     )
                 )
