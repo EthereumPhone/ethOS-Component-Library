@@ -36,7 +36,7 @@ import org.ethosmobile.components.library.theme.Colors
 import org.ethosmobile.components.library.theme.Fonts
 
 @Composable
-fun InfoDialog(
+fun ethOSInfoDialog(
     title: String,
     text: String,
     setShowDialog: () -> Unit,
@@ -111,7 +111,7 @@ fun InfoDialog(
 @Preview
 @Composable
 fun PreviewInfoDialog() {
-    InfoDialog(
+    ethOSInfoDialog(
         "Title",
         "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
         {}
