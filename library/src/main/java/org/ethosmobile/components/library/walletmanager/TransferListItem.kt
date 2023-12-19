@@ -91,7 +91,7 @@ fun TransferListItem(
                         )
                         Text(transfer.asset, fontSize = 18.sp, fontWeight = FontWeight.Medium, color = icontint)
                     }
-                    Text(fiatAmount, color = Colors.GRAY, fontSize = 18.sp, fontWeight = FontWeight.Medium )
+                    //Text(fiatAmount, color = Colors.GRAY, fontSize = 18.sp, fontWeight = FontWeight.Medium )
                 }
 
                 Spacer(modifier = Modifier.width(24.dp))

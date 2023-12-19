@@ -52,7 +52,7 @@ fun AssetListItem(
 
                     Text(assets.get(0).symbol.uppercase(), color = Colors.WHITE, fontSize = 18.sp, fontWeight = FontWeight.Medium)
                 }
-                Text(fiatAmount, color = Colors.GRAY,fontSize = 18.sp, fontWeight = FontWeight.Medium)
+                //Text(fiatAmount, color = Colors.GRAY,fontSize = 18.sp, fontWeight = FontWeight.Medium)
             }
             Spacer(modifier = Modifier.width(24.dp))
 
@@ -77,6 +77,7 @@ fun AssetListItem(
 @Composable
 fun AssetListDetailItem(
     tokenAsset: TokenAsset,
+    fiatAmount: String = "\$TODO",
 ){
     val networkname = when(tokenAsset.chainId){
         1 -> "Mainnet"
@@ -109,7 +110,7 @@ fun AssetListDetailItem(
 
                     Text(tokenAsset.symbol.uppercase(), color = Colors.WHITE,fontSize = 16.sp, fontWeight = FontWeight.Medium)
                 }
-                Text("\$TODO", color = Colors.GRAY,fontSize = 16.sp,fontWeight = FontWeight.Medium )
+                //Text(fiatAmount, color = Colors.GRAY,fontSize = 16.sp,fontWeight = FontWeight.Medium )
             }
 
         }
