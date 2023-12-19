@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.ethosmobile.components.library.models.TransferItem
 import org.ethosmobile.components.library.theme.Colors
+import org.ethosmobile.components.library.theme.Fonts
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -66,9 +67,10 @@ fun TransferListItem(
                     fontWeight = FontWeight.Medium,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 1,
+                    fontFamily = Fonts.INTER,
                     modifier = Modifier.width(125.dp)
                 )
-                Text(transfer.timeStamp.take(10), color = Colors.GRAY, fontSize = 18.sp, fontWeight = FontWeight.Medium)
+                Text(transfer.timeStamp.take(10), color = Colors.GRAY, fontFamily = Fonts.INTER,fontSize = 18.sp, fontWeight = FontWeight.Medium)
             }
 
             Row (
@@ -87,9 +89,10 @@ fun TransferListItem(
                             text = "${if(transfer.userSent) "-" else "+"}${transfer.value}",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Medium,
+                            fontFamily = Fonts.INTER,
                             color = icontint
                         )
-                        Text(transfer.asset, fontSize = 18.sp, fontWeight = FontWeight.Medium, color = icontint)
+                        Text(transfer.asset, fontSize = 18.sp, fontFamily = Fonts.INTER,fontWeight = FontWeight.Medium, color = icontint)
                     }
                     //Text(fiatAmount, color = Colors.GRAY, fontSize = 18.sp, fontWeight = FontWeight.Medium )
                 }

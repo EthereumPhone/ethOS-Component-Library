@@ -34,6 +34,7 @@ import androidx.compose.material.icons.rounded.ChevronRight
 import androidx.compose.material.rememberSwipeableState
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material.swipeable
+
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
@@ -63,7 +64,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
 import org.ethosmobile.components.library.theme.Colors
-import org.ethosmobile.components.library.theme.Font
+import org.ethosmobile.components.library.theme.Fonts
 import org.ethosmobile.components.library.utils.SwipeButtonDefaults
 import kotlin.math.roundToInt
 
@@ -105,7 +106,7 @@ fun ethOSButton(
                 color= Colors.BLACK,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 18.sp,
-                fontFamily = Font.INTER
+                fontFamily = Fonts.INTER
             )
 
         }

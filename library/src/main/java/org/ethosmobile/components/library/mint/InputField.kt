@@ -25,7 +25,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.ethosmobile.components.library.theme.Colors
-import org.ethosmobile.components.library.theme.Font
+
+import org.ethosmobile.components.library.theme.Fonts
 
 
 @Composable
@@ -52,14 +53,14 @@ fun InputField(
             }
         },
         textStyle = TextStyle(
-            fontFamily =  Font.INTER,
+            fontFamily =  Fonts.INTER,
             fontSize = size.sp,
             fontWeight = FontWeight.SemiBold
         ),
         placeholder = {
             Text(
                 text = placeholder,
-                fontFamily = Font.INTER,
+                fontFamily = Fonts.INTER,
                 fontSize = size.sp,
                 fontWeight = FontWeight.SemiBold
             )

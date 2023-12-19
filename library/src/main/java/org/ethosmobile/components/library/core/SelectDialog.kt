@@ -41,6 +41,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import org.ethosmobile.components.library.theme.Colors
+import org.ethosmobile.components.library.theme.Fonts
 
 
 @Composable
@@ -63,9 +64,9 @@ fun SelectDialog(
         Surface(
             shape = RoundedCornerShape(16.dp),
             color = color,
-            contentColor = Color.White,
+            contentColor = Colors.WHITE,
             shadowElevation = 20.dp,
-            border = BorderStroke(width = 1.dp, Color.White)
+            border = BorderStroke(width = 1.dp, Colors.WHITE)
         ) {
             Box(
                 contentAlignment = Alignment.Center
@@ -88,20 +89,11 @@ fun SelectDialog(
                             text = title,
                             style = TextStyle(
                                 fontSize = 22.sp,
-                                fontFamily = FontFamily.Default,
+                                fontFamily = Fonts.INTER,
                                 fontWeight = FontWeight.SemiBold,
                                 textAlign = TextAlign.Center
                             )
                         )
-//                        Icon(
-//                            imageVector = Icons.Rounded.Close,
-//                            contentDescription = "Close",
-//                            tint = Color.Transparent,//Color(0xFF24303D),//Color.White,
-//                            modifier = Modifier
-//                                .width(30.dp)
-//                                .height(30.dp)
-//                                .clickable { }//setShowDialog() }
-//                        )
                     }
 
 
@@ -131,7 +123,7 @@ fun SelectDialog(
                                         text = firstOptionTitle,
                                         style = TextStyle(
                                             fontSize = 14.sp,
-                                            fontFamily = FontFamily.Default,
+                                            fontFamily = Fonts.INTER,
                                             fontWeight = FontWeight.Medium,
                                             textAlign = TextAlign.Center
                                         )
@@ -156,7 +148,7 @@ fun SelectDialog(
                                         text = secondOptionTitle,
                                         style = TextStyle(
                                             fontSize = 14.sp,
-                                            fontFamily = FontFamily.Default,
+                                            fontFamily = Fonts.INTER,
                                             fontWeight = FontWeight.Medium,
                                             textAlign = TextAlign.Center
                                         )

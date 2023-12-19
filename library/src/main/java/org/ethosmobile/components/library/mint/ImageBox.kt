@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.sp
 import org.ethosmobile.components.library.core.dashedBorder
 import org.ethosmobile.components.library.models.TokenAsset
 import org.ethosmobile.components.library.theme.Colors
-import org.ethosmobile.components.library.theme.Font
+import org.ethosmobile.components.library.theme.Fonts
 
 @Composable
 fun ImageBox(
@@ -76,7 +76,7 @@ fun ImageBox(
                     fontSize = 18.sp,
                     color = Colors.GRAY,
                     fontWeight = FontWeight.SemiBold,
-                    fontFamily = Font.INTER
+                    fontFamily = Fonts.INTER
                 )
             }
         }

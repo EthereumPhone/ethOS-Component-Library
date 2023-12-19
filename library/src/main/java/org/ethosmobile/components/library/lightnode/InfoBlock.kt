@@ -29,7 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.ethosmobile.components.library.theme.Colors
-import org.ethosmobile.components.library.theme.Font
+import org.ethosmobile.components.library.theme.Fonts
 
 @Composable
 fun InfoBlock(
@@ -53,7 +53,8 @@ fun InfoBlock(
                     //modifier = modifier.padding(start = 16.dp),
                     text = title,
                     fontSize = 16.sp,
-                    color = Colors.WHITE
+                    color = Colors.WHITE,
+                    fontFamily = Fonts.INTER,
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 icon()
@@ -73,7 +74,7 @@ fun InfoBlock(
                 style = TextStyle(
                     fontSize = 18.sp,
                     fontWeight = FontWeight.SemiBold,
-                    fontFamily = Font.INTER
+                    fontFamily = Fonts.INTER
                 ),
                 modifier = Modifier.padding(vertical = 16.dp)
             )

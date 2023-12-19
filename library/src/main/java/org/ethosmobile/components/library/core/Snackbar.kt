@@ -2,6 +2,7 @@ package org.ethosmobile.components.library.core
 
 
 
+import android.annotation.SuppressLint
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -41,10 +42,11 @@ import org.ethosmobile.components.library.utils.SnackbarDelegate
 import org.ethosmobile.components.library.utils.SnackbarState
 import org.ethosmobile.components.library.utils.rememberSnackbarDelegate
 import org.ethosmobile.components.library.theme.Colors
-import org.ethosmobile.components.library.theme.Font
+import org.ethosmobile.components.library.theme.Fonts
 import org.ethosmobile.components.library.theme.ethOSTheme
 
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
 @Preview
 fun ethOSSnackbarPreview() {
@@ -152,7 +154,7 @@ fun CustomSnackBar(
                         color = delegate.snackbarOnColor,
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Medium,
-                        fontFamily = Font.INTER,
+                        fontFamily = Fonts.INTER,
                     )
                 )
                 Image(

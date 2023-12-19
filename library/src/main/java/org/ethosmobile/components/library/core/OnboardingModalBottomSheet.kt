@@ -32,6 +32,8 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
 import org.ethosmobile.components.library.R
 import org.ethosmobile.components.library.models.OnboardingItem
+import org.ethosmobile.components.library.theme.Colors
+import org.ethosmobile.components.library.theme.Fonts
 
 
 @Composable
@@ -82,21 +84,24 @@ fun OnboardingListItem(item: OnboardingItem){
         Icon(
             imageVector = item.imageVector,
             contentDescription = item.title,
-            tint = Color.White,
+            tint = Colors.WHITE,
+
             modifier = Modifier.size(42.dp)
         )
         Text(
             text = item.title,
             textAlign = TextAlign.Center,
             fontSize = 20.sp,
-            color = Color.White,
+            color = Colors.WHITE,
+            fontFamily = Fonts.INTER,
             fontWeight = FontWeight.SemiBold
         )
         Text(
             text = item.subtitle,
             textAlign = TextAlign.Center,
             fontSize = 16.sp,
-            color = Color(0xFF8C8C8C),
+            fontFamily = Fonts.INTER,
+            color = Colors.GRAY,
             fontWeight = FontWeight.SemiBold
         )
 

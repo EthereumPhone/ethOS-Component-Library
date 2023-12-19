@@ -38,7 +38,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import org.ethosmobile.components.library.theme.Colors
-import org.ethosmobile.components.library.theme.Font
+import org.ethosmobile.components.library.theme.Fonts
 
 /*@Composable
 @Preview
@@ -111,7 +111,7 @@ fun ethOSListItem(
                         color = Colors.WHITE,
                         fontSize = 20.sp,
                         fontWeight = FontWeight.SemiBold,
-                        fontFamily = Font.INTER,
+                        fontFamily = Fonts.INTER,
                     )
                 )
                 if(chatListItem){
@@ -122,7 +122,7 @@ fun ethOSListItem(
                             color = Colors.GRAY,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Medium,
-                            fontFamily = Font.INTER,
+                            fontFamily = Fonts.INTER,
                         )
                     )
                 }
@@ -141,7 +141,7 @@ fun ethOSListItem(
                         color = Colors.GRAY,
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Medium,
-                        fontFamily = Font.INTER,
+                        fontFamily = Fonts.INTER,
                     )
                 )
                 ethOSTag(header = ""+msgnumber, primary = true)

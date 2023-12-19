@@ -32,7 +32,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.ethosmobile.components.library.theme.Font
+import org.ethosmobile.components.library.theme.Colors
+import org.ethosmobile.components.library.theme.Fonts
 import kotlin.math.max
 
 
@@ -143,7 +144,7 @@ fun ethOSTextField(
         minLines = 1,
         maxLines = 2,
         textStyle = LocalTextStyle.current.copy(
-            fontFamily = Font.INTER,
+            fontFamily = Fonts.INTER,
             color = color,
             fontSize = calculateFontSize(text.length,size,sizeCut),
             fontWeight = FontWeight.SemiBold
@@ -165,8 +166,9 @@ fun ethOSTextField(
                     text = label,
                     textAlign = TextAlign.Start,
                     fontWeight = FontWeight.Medium,
+                    fontFamily = Fonts.INTER,
                     fontSize = size.sp,
-                    color = Color(0xFF9FA2A5),
+                    color = Colors.GRAY,
                     modifier = Modifier.fillMaxWidth()
                 )
             }

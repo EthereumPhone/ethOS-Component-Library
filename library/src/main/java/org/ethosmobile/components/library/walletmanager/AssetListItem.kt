@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.ethosmobile.components.library.models.TokenAsset
 import org.ethosmobile.components.library.theme.Colors
+import org.ethosmobile.components.library.theme.Fonts
 import java.text.DecimalFormat
 
 @Composable
@@ -35,7 +36,7 @@ fun AssetListItem(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.fillMaxWidth()
     ){
-        Text(title.uppercase(), color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
+        Text(title.uppercase(), color = Color.White, fontFamily = Fonts.INTER,fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
         Row(
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -48,9 +49,9 @@ fun AssetListItem(
                     verticalAlignment = Alignment.CenterVertically,
 
                     ){
-                    Text(formatDouble(assets.sumOf { it.balance }), color = Colors.WHITE,fontSize = 18.sp, fontWeight = FontWeight.Medium)
+                    Text(formatDouble(assets.sumOf { it.balance }), fontFamily = Fonts.INTER,color = Colors.WHITE,fontSize = 18.sp, fontWeight = FontWeight.Medium)
 
-                    Text(assets.get(0).symbol.uppercase(), color = Colors.WHITE, fontSize = 18.sp, fontWeight = FontWeight.Medium)
+                    Text(assets.get(0).symbol.uppercase(), fontFamily = Fonts.INTER,color = Colors.WHITE, fontSize = 18.sp, fontWeight = FontWeight.Medium)
                 }
                 //Text(fiatAmount, color = Colors.GRAY,fontSize = 18.sp, fontWeight = FontWeight.Medium)
             }
@@ -106,9 +107,9 @@ fun AssetListDetailItem(
                     verticalAlignment = Alignment.CenterVertically,
 
                     ){
-                    Text("${tokenAsset.balance}", color = Colors.WHITE,fontSize = 16.sp, fontWeight = FontWeight.Medium)
+                    Text("${tokenAsset.balance}", color = Colors.WHITE,fontSize = 16.sp, fontWeight = FontWeight.Medium,fontFamily = Fonts.INTER,)
 
-                    Text(tokenAsset.symbol.uppercase(), color = Colors.WHITE,fontSize = 16.sp, fontWeight = FontWeight.Medium)
+                    Text(tokenAsset.symbol.uppercase(), color = Colors.WHITE,fontSize = 16.sp, fontWeight = FontWeight.Medium,fontFamily = Fonts.INTER)
                 }
                 //Text(fiatAmount, color = Colors.GRAY,fontSize = 16.sp,fontWeight = FontWeight.Medium )
             }

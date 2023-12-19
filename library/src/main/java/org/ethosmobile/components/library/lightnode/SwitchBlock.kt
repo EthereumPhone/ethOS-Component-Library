@@ -43,7 +43,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
 import org.ethosmobile.components.library.theme.Colors
-import org.ethosmobile.components.library.theme.Font
+import org.ethosmobile.components.library.theme.Fonts
 
 @Composable
 fun SwitchBlock(
@@ -96,7 +96,7 @@ fun SwitchBlock(
                     style = TextStyle(
                         fontSize = 18.sp,
                         fontWeight = FontWeight.SemiBold,
-                        fontFamily = Font.INTER
+                        fontFamily = Fonts.INTER
                     ),
                     modifier = Modifier.padding(vertical = 16.dp)
                 )
@@ -132,7 +132,7 @@ fun SwitchBlock(
                                 style = TextStyle(
                                     fontSize = 18.sp,
                                     fontWeight = FontWeight.SemiBold,
-                                    fontFamily = Font.INTER,
+                                    fontFamily = Fonts.INTER,
                                     color = Colors.WHITE
                                 )
                             )

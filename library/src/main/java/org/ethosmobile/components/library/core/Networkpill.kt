@@ -32,6 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.ethosmobile.components.library.theme.Colors
+import org.ethosmobile.components.library.theme.Fonts
 
 @Composable
 fun ethOSNetworkPill(
@@ -48,7 +49,7 @@ fun ethOSNetworkPill(
             copyTextToClipboard(context,address)
         },
         color = Colors.DARK_GRAY,
-        contentColor = Color.White
+        contentColor = Colors.WHITE
     ) {
         Row (
             horizontalArrangement = Arrangement.spacedBy(12.dp),
@@ -60,20 +61,21 @@ fun ethOSNetworkPill(
                 modifier = modifier.clip(CircleShape)
                     .size(24.dp)
                     .background(chainColor)
-
             )
             Text(
                 text = network,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.SemiBold,
-                color = Color.White
+                color = Color.White,
+                fontFamily = Fonts.INTER,
             )
             Text(
                 modifier = modifier.padding(end=12.dp),
                 text = truncateText(address),
                 fontSize = 16.sp,
                 fontWeight = FontWeight.SemiBold,
-                color = Color.White
+                color = Color.White,
+                fontFamily = Fonts.INTER,
             )
         }
 
