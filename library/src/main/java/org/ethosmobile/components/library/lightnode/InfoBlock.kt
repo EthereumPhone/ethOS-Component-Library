@@ -53,7 +53,7 @@ fun ethOSInfoBlock(
                     //modifier = modifier.padding(start = 16.dp),
                     text = title,
                     fontSize = 16.sp,
-                    color = Colors.WHITE,
+                    color = Colors.GRAY,
                     fontFamily = Fonts.INTER,
                 )
                 Spacer(modifier = Modifier.width(8.dp))

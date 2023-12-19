@@ -26,7 +26,7 @@ import org.ethosmobile.components.library.theme.Colors
 
 
 @Composable
-fun Block(
+fun ethOSBlock(
     number: String,
     tx: String,
     gas: String,
@@ -70,13 +70,13 @@ fun Block(
             )
             IconButton(
                 onClick = onClick,
-                modifier = Modifier.size(18.dp)
+                modifier = Modifier.size(22.dp)
             ) {
                 Box(
                     modifier = Modifier.weight(.1f),
                     contentAlignment = Alignment.CenterEnd
                 ){
-                    Icon(imageVector = Icons.Outlined.KeyboardArrowRight, contentDescription = "Block Details", tint = Colors.GRAY)
+                    Icon(imageVector = Icons.Outlined.KeyboardArrowRight, contentDescription = "Block Details", tint = Colors.WHITE)
                 }
             }
 
@@ -93,7 +93,7 @@ fun PreviewBlock(
     Column(
         modifier = Modifier.background(Color.Red)
     ) {
-        Block("15949919","189", "0.13165") {
+        ethOSBlock("15949919","189", "0.13165") {
 
         }
     }
