@@ -25,12 +25,9 @@ import org.ethosmobile.components.library.theme.Colors
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ethOSSwitch(
-    //checked: Boolean,
-    //onCheckedChange: ((Boolean) -> Unit)?,
     modifier: Modifier = Modifier,
     switchON: MutableState<Boolean>,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    colors: SwitchColors = SwitchDefaults.colors(),
     onCheckedChange: (Boolean) -> Unit
 ) {
 
