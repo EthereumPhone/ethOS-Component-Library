@@ -37,7 +37,7 @@ import org.ethosmobile.components.library.theme.Colors
 import org.ethosmobile.components.library.theme.Fonts
 
 @Composable
-fun Header(
+fun ethOSHeader(
     modifier: Modifier = Modifier,
     title: String,
     isBackButton: Boolean = false,
@@ -126,7 +126,7 @@ fun PreviewHeader() {
             .fillMaxSize()
             .background(Colors.BLACK)//.padding(start = 24.dp, end = 24.dp)
     ) {
-        Header(
+        ethOSHeader(
             title = "Send",
             isBackButton = false,
             isTrailContent = false,

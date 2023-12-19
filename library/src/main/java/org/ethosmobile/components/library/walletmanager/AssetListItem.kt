@@ -25,7 +25,7 @@ import org.ethosmobile.components.library.theme.Fonts
 import java.text.DecimalFormat
 
 @Composable
-fun AssetListItem(
+fun ethOSAssetListItem(
     title: String,
     assets: List<TokenAsset>,
     fiatAmount: String = "\$TODO",
@@ -76,7 +76,7 @@ fun AssetListItem(
 
 
 @Composable
-fun AssetListDetailItem(
+fun ethOSAssetListDetailItem(
     tokenAsset: TokenAsset,
     fiatAmount: String = "\$TODO",
 ){

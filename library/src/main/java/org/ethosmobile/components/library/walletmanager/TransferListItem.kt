@@ -33,7 +33,7 @@ import org.ethosmobile.components.library.theme.Fonts
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TransferListItem(
+fun ethOSTransferListItem(
     modifier: Modifier = Modifier,
     transfer: TransferItem,
     fiatAmount: String = "\$TODO",
@@ -126,7 +126,7 @@ fun TransferListItemPreview(
     Column(
         modifier = Modifier.fillMaxSize().background(Colors.BLACK).padding(24.dp)
     ) {
-        TransferListItem(
+        ethOSTransferListItem(
             fiatAmount = "$0.00",
             transfer= TransferItem(
                 chainId = 5,

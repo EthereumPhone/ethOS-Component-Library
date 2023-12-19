@@ -32,7 +32,7 @@ import org.ethosmobile.components.library.theme.Colors
 import org.ethosmobile.components.library.theme.Fonts
 
 @Composable
-fun InfoBlock(
+fun ethOSInfoBlock(
     modifier: Modifier = Modifier,
     text: String,
     title: String = "",
@@ -89,7 +89,7 @@ fun InfoBlock(
 @Composable
 fun PreviewTinystatus(
 ) {
-    InfoBlock(
+    ethOSInfoBlock(
         text = "Ethereum mainnet",
         title = "Network",
         hasTitle = true,

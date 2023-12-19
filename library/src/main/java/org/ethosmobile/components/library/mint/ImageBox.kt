@@ -33,7 +33,7 @@ import org.ethosmobile.components.library.theme.Colors
 import org.ethosmobile.components.library.theme.Fonts
 
 @Composable
-fun ImageBox(
+fun ethOSImageBox(
     modifier: Modifier= Modifier,
     onClick: () -> Unit
 ) {
@@ -92,7 +92,7 @@ fun ImageBoxPreview(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.height(300.dp).fillMaxWidth().padding(12.dp)//
     ){
-        ImageBox(onClick={})
+        ethOSImageBox(onClick={})
     }
 
 }

@@ -45,7 +45,7 @@ import org.ethosmobile.components.library.theme.Fonts
 
 
 @Composable
-fun SelectDialog(
+fun ethOSSelectDialog(
     color: Color,
     title: String,
     firstOptionTitle: String,
@@ -165,7 +165,7 @@ fun SelectDialog(
 @Preview
 @Composable
 fun SelectDialogPreview(){
-    SelectDialog(
+    ethOSSelectDialog(
         title = "Select",
         color = Color.Black,
         setShowDialog = {},

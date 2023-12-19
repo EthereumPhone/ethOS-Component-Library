@@ -46,7 +46,7 @@ import org.ethosmobile.components.library.theme.Colors
 import org.ethosmobile.components.library.theme.Fonts
 
 @Composable
-fun SwitchBlock(
+fun ethOSSwitchBlock(
     modifier: Modifier= Modifier,
     options: Array<String>,
     onSelectedOption: (String) -> Unit,
@@ -157,7 +157,7 @@ fun PreviewSwitchBlock() {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxWidth()//
     ){
-        SwitchBlock(
+        ethOSSwitchBlock(
             modifier = Modifier.width(360.dp),
             options = options,
             onSelectedOption = {},

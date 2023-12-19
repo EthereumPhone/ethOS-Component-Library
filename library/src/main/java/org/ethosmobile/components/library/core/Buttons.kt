@@ -185,7 +185,7 @@ fun ethOSTagButton(
 
 @OptIn(ExperimentalMaterialApi::class, ExperimentalMaterialApi::class)
 @Composable
-fun SwipeButton(
+fun ethOSSwipeButton(
     text: String,
     icon: ImageVector,
     completeIcon: ImageVector,
@@ -215,7 +215,7 @@ fun SwipeButton(
         contentAlignment = Alignment.Center,
         modifier = modifier
             .clip(CircleShape)
-            .background(Color.White)
+            .background(Colors.WHITE)
             .padding(if (swipeComplete) PaddingValues(SwipeButtonDefaults.verticalPadding) else SwipeButtonDefaults.paddingValues)
             .animateContentSize()
             .then(
@@ -251,9 +251,9 @@ fun SwipeButton(
                     orientation = Orientation.Horizontal
                 )
         )
-        androidx.compose.material3.Text(
+        Text(
             text = text,
-            color = Color.Black,
+            color = Colors.BLACK,
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.SemiBold,
             fontSize = 16.sp,
@@ -266,11 +266,11 @@ fun SwipeButton(
             enter = fadeIn(),
             exit = fadeOut(),
         ) {
-            androidx.compose.material3.Icon(
+            Icon(
                 completeIcon,
                 contentDescription = "",
                 modifier = Modifier.padding(2.dp),
-                tint = Color(0xFF24303D)
+                tint = Colors.DARK_GRAY
             )
         }
     }
@@ -284,15 +284,15 @@ fun SwipeIndicator(
 ) {
     Surface(
         shape = CircleShape,
-        color = Color.Black,
+        color = Colors.BLACK,
         modifier = modifier
             .size(36.dp)
     ) {
-        androidx.compose.material3.Icon(
+        Icon(
             icon,
             contentDescription = "",
             modifier = Modifier.padding(2.dp),
-            tint = Color.White
+            tint = Colors.BLACK
         )
     }
 }
@@ -305,7 +305,7 @@ fun SwipeIndicator(
 @Composable
 private fun PreviewSwipeButton() {
     Surface(
-        color = Color.Black
+        color = Colors.BLACK
     ) {
         val coroutineScope = rememberCoroutineScope()
         val (isComplete, setIsComplete) = remember {
@@ -319,7 +319,7 @@ private fun PreviewSwipeButton() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            SwipeButton(
+            ethOSSwipeButton(
                 modifier = Modifier,
                 icon = Icons.Filled.ArrowForward,
                 completeIcon = Icons.Filled.Check,

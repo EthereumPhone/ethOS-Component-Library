@@ -53,7 +53,7 @@ fun WelcomeModalBottomSheet(onDismiss: () -> Unit) {
                 text = "WalletManager",
                 textAlign = TextAlign.Center,
                 fontSize = 32.sp,
-                color = Color.White,
+                color = Colors.WHITE,
                 fontWeight = FontWeight.SemiBold
             )
         }
@@ -110,7 +110,7 @@ fun OnboardingListItem(item: OnboardingItem){
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun OnboardingModalBottomSheet(onDismiss: () -> Unit, sheetState: SheetState){
+fun ethOSOnboardingModalBottomSheet(onDismiss: () -> Unit, sheetState: SheetState){
 
     ModalBottomSheet(
         containerColor= Color.Black,
@@ -127,11 +127,11 @@ fun OnboardingModalBottomSheet(onDismiss: () -> Unit, sheetState: SheetState){
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 @Preview
-fun OnboardingModalBottomSheetPreview() {
+fun ethOSOnboardingModalBottomSheetPreview() {
     val modalSheetState = rememberModalBottomSheetState(true)
     val coroutineScope = rememberCoroutineScope()
 
-    OnboardingModalBottomSheet(
+    ethOSOnboardingModalBottomSheet(
         onDismiss = {
             coroutineScope.launch {
                 modalSheetState.hide()

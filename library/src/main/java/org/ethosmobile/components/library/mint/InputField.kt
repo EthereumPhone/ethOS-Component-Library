@@ -30,7 +30,7 @@ import org.ethosmobile.components.library.theme.Fonts
 
 
 @Composable
-fun InputField(
+fun ethOSInputField(
     value: String,
     placeholder: String,
     readOnly: Boolean = false,
@@ -86,8 +86,8 @@ fun InputField(
 @Composable
 @Preview
 fun PreviewInputFiledBox() {
-    
-        InputField("Test", "Test", modifier = Modifier.fillMaxWidth())
+
+    ethOSInputField("Test", "Test", modifier = Modifier.fillMaxWidth())
     
 }
 

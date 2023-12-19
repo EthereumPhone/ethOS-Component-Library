@@ -52,7 +52,7 @@ fun ethOSSwitch(
             modifier = Modifier
                 .size(25.dp)
                 .clip(CircleShape)
-                .background(Colors.DARK_GRAY)
+                .background(Colors.WHITE)
                 .align(alignment)
         )
         Row(

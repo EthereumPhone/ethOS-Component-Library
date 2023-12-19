@@ -126,7 +126,7 @@ fun ethOSSnackbarPreview() {
 }
 
 @Composable
-fun CustomSnackBar(
+fun ethOSSnackBar(
     @DrawableRes drawableRes: Int,
     delegate: SnackbarDelegate,
     message: String,
@@ -178,7 +178,7 @@ fun ethOSSnackbarHost(
             modifier= modifier,
             hostState = delegate.snackbarHostState
         ) { snackbarData: SnackbarData ->
-            CustomSnackBar(
+            ethOSSnackBar(
                 R.drawable.baseline_check_24,
                 delegate,
                 "ethOS Component Library"

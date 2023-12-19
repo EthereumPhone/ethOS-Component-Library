@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.sp
 import org.ethosmobile.components.library.theme.Fonts
 
 @Composable
-fun SimpleAssetListItem(
+fun ethOSSimpleAssetListItem(
     title: String,
     value: Double,
     fiatAmount: String = "\$TODO",
