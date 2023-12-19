@@ -32,16 +32,16 @@ import androidx.compose.ui.unit.sp
 import org.ethosmobile.components.library.utils.rememberSnackbarDelegate
 import org.ethosmobile.components.library.theme.ethOSTheme
 
-import org.ethosmobile.components.library.core.Header
+import org.ethosmobile.components.library.core.ethOSHeader
 import org.ethosmobile.components.library.core.ethOSIconButton
 import org.ethosmobile.components.library.core.ethOSTagButton
 import org.ethosmobile.components.library.models.TokenAsset
 import org.ethosmobile.components.library.models.TransferItem
 import org.ethosmobile.components.library.theme.Colors
-import org.ethosmobile.components.library.walletmanager.AssetListDetailItem
-import org.ethosmobile.components.library.walletmanager.AssetListItem
-import org.ethosmobile.components.library.walletmanager.SimpleAssetListItem
-import org.ethosmobile.components.library.walletmanager.TransferListItem
+import org.ethosmobile.components.library.walletmanager.ethOSAssetListDetailItem
+import org.ethosmobile.components.library.walletmanager.ethOSAssetListItem
+import org.ethosmobile.components.library.walletmanager.ethOSSimpleAssetListItem
+import org.ethosmobile.components.library.walletmanager.ethOSTransferListItem
 
 //Composables
 //import com.example.ethoscomponents.components.ethOSTextfield
@@ -59,7 +59,7 @@ class MainActivity : ComponentActivity() {
                        .background(Colors.BLACK),
                    horizontalAlignment = Alignment.CenterHorizontally
                ){
-                   Header(
+                   ethOSHeader(
                        title = "Send",
                        isBackButton = false,
                        isTrailContent = true,
@@ -111,8 +111,8 @@ class MainActivity : ComponentActivity() {
                        verticalArrangement = Arrangement.spacedBy(32.dp),
                        horizontalAlignment = Alignment.CenterHorizontally
                    ){
-                       SimpleAssetListItem(title = "Mainnet", value = 0.61)
-                       AssetListItem(title = "ETH" ,assets = listOf(
+                       ethOSSimpleAssetListItem(title = "Mainnet", value = 0.61)
+                       ethOSAssetListItem(title = "ETH" ,assets = listOf(
                            TokenAsset(
                                address = "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
                                chainId = 1,
@@ -128,14 +128,14 @@ class MainActivity : ComponentActivity() {
                                balance = 0.21
                            )
                        ))
-                       AssetListDetailItem(tokenAsset = TokenAsset(
+                       ethOSAssetListDetailItem(tokenAsset = TokenAsset(
                            address = "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
                            chainId = 1,
                            symbol = "ETH",
                            name = "Ether",
                            balance = 0.61
                        ))
-                       TransferListItem(
+                       ethOSTransferListItem(
                            transfer= TransferItem(
                                chainId = 5,
                                from = "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
