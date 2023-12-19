@@ -1,5 +1,6 @@
 package org.ethosmobile.components.library.core
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,7 +21,7 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun Switch(
+fun ethOSSwitch(
     //checked: Boolean,
     //onCheckedChange: ((Boolean) -> Unit)?,
     modifier: Modifier = Modifier,
@@ -62,6 +63,7 @@ fun Switch(
     }
 }
 
+@SuppressLint("UnrememberedMutableState")
 @Composable
 private fun animateHorizontalAlignmentAsState(
     targetBiasValue: Float
@@ -75,7 +77,7 @@ private fun animateHorizontalAlignmentAsState(
 fun TestPeview() {
     val isOnlineVar = remember { mutableStateOf(false) }
 
-    Switch(switchON = isOnlineVar) {}
+    ethOSSwitch(switchON = isOnlineVar) {}
 }
 
 

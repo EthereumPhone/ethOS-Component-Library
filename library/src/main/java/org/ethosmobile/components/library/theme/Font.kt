@@ -6,7 +6,7 @@ import androidx.compose.ui.text.font.FontWeight
 import org.ethosmobile.components.library.R
 
 
-class Font {
+class Fonts {
 
     companion object {
 
