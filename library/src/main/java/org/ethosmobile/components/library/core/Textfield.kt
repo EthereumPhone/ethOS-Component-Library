@@ -44,6 +44,8 @@ fun ethOSCenterTextField(
     //focusRequester: FocusRequester? = null,
     modifier: Modifier = Modifier,
     label: String = "",
+    maxChar: Int = 42,
+    sizeCut: Int = 2,
     singleLine: Boolean = false,//true,
     onTextChanged: (String) -> Unit,
     color: Color = Color.White
@@ -58,17 +60,20 @@ fun ethOSCenterTextField(
     BasicTextField(
         value = text,
         onValueChange = {
-            onTextChanged(it)
+            if(it.length < maxChar){
+                onTextChanged(it)
+            }
             fontSize = size.sp
         },
         singleLine = singleLine,
         minLines = 1,
         maxLines = 2,
         textStyle = LocalTextStyle.current.copy(
-            color = color,
+            fontFamily = Fonts.INTER,
             textAlign = TextAlign.Center,
-            fontSize = fontSize,
-            fontWeight = FontWeight.SemiBold
+            color = color,
+            fontSize = calculateFontSize(text.length,size,sizeCut),
+            fontWeight = FontWeight.SemiBold,
         ),
         modifier = Modifier.fillMaxWidth(),
 
@@ -232,7 +237,7 @@ fun PreviewTextField() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        ethOSTextField(
+        ethOSCenterTextField(
             text = test,
             size = 64,
             label = "0",
