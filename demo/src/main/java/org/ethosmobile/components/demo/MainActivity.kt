@@ -135,19 +135,19 @@ class MainActivity : ComponentActivity() {
                            name = "Ether",
                            balance = 0.61
                        ))
-                       ethOSTransferListItem(
-                           transfer= TransferItem(
-                               chainId = 5,
-                               from = "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
-                               to =  "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
-                               asset = "ETH",
-                               value = "2.24",
-                               timeStamp = "10-19-01",//Clock.System.now().toString(),
-                               userSent = true,
-                               txHash= "pfpfnopjfpfn",
-                           ),
-                           onCardClick = {}
-                       )
+//                       ethOSTransferListItem(
+//                           transfer= TransferItem(
+//                               chainId = 5,
+//                               from = "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
+//                               to =  "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
+//                               asset = "ETH",
+//                               value = "2.24",
+//                               timeStamp = "10-19-01",//Clock.System.now().toString(),
+//                               userSent = true,
+//                               txHash= "pfpfnopjfpfn",
+//                           ),
+//                           onCardClick = {}
+//                       )
 
                            Row(
                                horizontalArrangement = Arrangement.spacedBy(32.dp),

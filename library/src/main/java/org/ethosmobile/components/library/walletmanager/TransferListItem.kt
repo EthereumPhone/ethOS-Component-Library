@@ -35,14 +35,10 @@ import org.ethosmobile.components.library.theme.Fonts
 @Composable
 fun ethOSTransferListItem(
     modifier: Modifier = Modifier,
-    chainId: Int,
-    from: String,
-    to: String,
     asset: String,
     value: String,
     timeStamp: String,
     userSent: Boolean,
-    txHash: String,
     fiatAmount: String = "\$TODO",
     onCardClick: () -> Unit = {}
 ) {
@@ -136,14 +132,11 @@ fun TransferListItemPreview(
         ethOSTransferListItem(
             fiatAmount = "$0.00",
 
-                chainId = 5,
-                from = "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
-                to =  "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
+
                 asset = "ETH",
                 value = "2.24",
                 timeStamp = "10-19-01",//Clock.System.now().toString(),
                 userSent = false,
-                txHash= "pfpfnopjfpfn",
 
             onCardClick = {}
         )
