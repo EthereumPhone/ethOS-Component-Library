@@ -141,6 +141,7 @@ fun ethOSIconButton(
             color = Color.White,
             modifier = Modifier.padding(top = 4.dp),
             fontSize = 16.sp,
+            fontFamily = Fonts.INTER,
             fontWeight = FontWeight.Medium
         )
     }
@@ -167,16 +168,19 @@ fun ethOSTagButton(
             ) {
                 Text(
                     text,
-                    fontWeight = FontWeight.Medium,
+                    fontWeight = FontWeight.SemiBold,
                     color = Colors.WHITE,
                     fontFamily = Fonts.INTER,
-                    fontSize = 18.sp
+                    fontSize = 18.sp,
+                    letterSpacing = 0.sp
                 )
                 Icon(
                     imageVector = Icons.Rounded.ChevronRight,
                     contentDescription = "",
                     tint = Colors.WHITE,
-                    modifier = Modifier.size(24.dp).rotate(90f)
+                    modifier = Modifier
+                        .size(24.dp)
+                        .rotate(90f)
                 )
             }
         }
@@ -257,6 +261,7 @@ fun ethOSSwipeButton(
             text = text,
             color = Colors.BLACK,
             textAlign = TextAlign.Center,
+            fontFamily = Fonts.INTER,
             fontWeight = FontWeight.SemiBold,
             fontSize = 16.sp,
             modifier = Modifier
@@ -340,9 +345,7 @@ private fun PreviewSwipeButton() {
 @Preview
 @Composable
 private fun PreviewButton() {
-    ethOSButton(
-        onClick = { /*TODO*/ },
-        enabled = true,
-        text = "Send"
-    )
+    ethOSTagButton(text = "Select Token") {
+        
+    }
 }
