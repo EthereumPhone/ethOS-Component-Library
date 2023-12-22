@@ -35,7 +35,14 @@ import org.ethosmobile.components.library.theme.Fonts
 @Composable
 fun ethOSTransferListItem(
     modifier: Modifier = Modifier,
-    transfer: TransferItem,
+    chainId: Int,
+    from: String,
+    to: String,
+    asset: String,
+    value: String,
+    timeStamp: String,
+    userSent: Boolean,
+    txHash: String,
     fiatAmount: String = "\$TODO",
     onCardClick: () -> Unit = {}
 ) {
@@ -49,7 +56,7 @@ fun ethOSTransferListItem(
     ) {
 
         //Color of Icon
-        var icontint = if (transfer.userSent) Colors.ERROR else Colors.SUCCESS
+        var icontint = if (userSent) Colors.ERROR else Colors.SUCCESS
 
         Row(
             modifier = modifier.fillMaxWidth(),
@@ -61,7 +68,7 @@ fun ethOSTransferListItem(
             ){
                 Text(
 
-                    text = if(transfer.userSent) "Sent ${transfer.asset}" else "Received ${transfer.asset}",
+                    text = if(userSent) "Sent ${asset}" else "Received ${asset}",
                     color = Colors.WHITE,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Medium,
@@ -70,7 +77,7 @@ fun ethOSTransferListItem(
                     fontFamily = Fonts.INTER,
                     modifier = Modifier.width(125.dp)
                 )
-                Text(transfer.timeStamp.take(10), color = Colors.GRAY, fontFamily = Fonts.INTER,fontSize = 18.sp, fontWeight = FontWeight.Medium)
+                Text(timeStamp.take(10), color = Colors.GRAY, fontFamily = Fonts.INTER,fontSize = 18.sp, fontWeight = FontWeight.Medium)
             }
 
             Row (
@@ -86,13 +93,13 @@ fun ethOSTransferListItem(
                         verticalAlignment = Alignment.CenterVertically,
                         ){
                         Text(
-                            text = "${if(transfer.userSent) "-" else "+"}${transfer.value}",
+                            text = "${if(userSent) "-" else "+"}${value}",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Medium,
                             fontFamily = Fonts.INTER,
                             color = icontint
                         )
-                        Text(transfer.asset, fontSize = 18.sp, fontFamily = Fonts.INTER,fontWeight = FontWeight.Medium, color = icontint)
+                        Text(asset, fontSize = 18.sp, fontFamily = Fonts.INTER,fontWeight = FontWeight.Medium, color = icontint)
                     }
                     //Text(fiatAmount, color = Colors.GRAY, fontSize = 18.sp, fontWeight = FontWeight.Medium )
                 }
@@ -128,7 +135,7 @@ fun TransferListItemPreview(
     ) {
         ethOSTransferListItem(
             fiatAmount = "$0.00",
-            transfer= TransferItem(
+
                 chainId = 5,
                 from = "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
                 to =  "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
@@ -137,7 +144,7 @@ fun TransferListItemPreview(
                 timeStamp = "10-19-01",//Clock.System.now().toString(),
                 userSent = false,
                 txHash= "pfpfnopjfpfn",
-            ),
+
             onCardClick = {}
         )
     }

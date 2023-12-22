@@ -168,7 +168,9 @@ fun ethOSTagButton(
                 Text(
                     text,
                     fontWeight = FontWeight.Medium,
-                    fontSize = 16.sp
+                    color = Colors.WHITE,
+                    fontFamily = Fonts.INTER,
+                    fontSize = 18.sp
                 )
                 Icon(
                     imageVector = Icons.Rounded.ChevronRight,

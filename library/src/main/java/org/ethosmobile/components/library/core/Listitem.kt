@@ -37,6 +37,7 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
 import org.ethosmobile.components.library.theme.Colors
 import org.ethosmobile.components.library.theme.Fonts
@@ -68,7 +69,7 @@ fun ethOSListItem(
     withImage:Boolean = false,
     image: @Composable () -> Unit = {},
     header: String = "Header",
-    isSubheader: Boolean = false,
+    withSubheader: Boolean = false,
     subheader: String = "Subheader",
     trailingContent: @Composable (() -> Unit)? = null,
     backgroundColor: Color = Colors.TRANSPARENT,
@@ -90,7 +91,7 @@ fun ethOSListItem(
                 modifier = modifier
                     .clip(CircleShape)
                     .background(Colors.DARK_GRAY)
-                    .size(64.dp)
+                    .size(56.dp)
             ) {
                 image()
             }
@@ -102,14 +103,20 @@ fun ethOSListItem(
                     text = header,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Medium,
-                    color = Colors.WHITE
+                    color = Colors.WHITE,
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 1,
+                    modifier = Modifier.width(160.dp)
                 )
             },
             supportingContent = {
-                if(isSubheader){
+                if(withSubheader){
                     Text(
                         text = subheader,
-                        color = Colors.GRAY
+                        color = Colors.GRAY,
+                        overflow = TextOverflow.Ellipsis,
+                        maxLines = 1,
+                        modifier = Modifier.width(160.dp)
                     )
                 }
 
@@ -177,7 +184,7 @@ fun ethOSChatListItem(
             modifier = Modifier
                 .clip(CircleShape)
                 .background(Colors.DARK_GRAY)
-                .size(64.dp)
+                .size(56.dp)
         ) {
             image()
         }
@@ -187,13 +194,19 @@ fun ethOSChatListItem(
                     text = header,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Medium,
-                    color = Color.White
+                    color = Colors.WHITE,
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 1,
+                    modifier = Modifier.width(160.dp)
                 )
             },
             supportingContent = {
                 Text(
                     text = subheader,
-                    color = Colors.GRAY
+                    color = Colors.GRAY,
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 1,
+                    modifier = Modifier.width(160.dp)
                 )
             },
             trailingContent = {
@@ -248,7 +261,8 @@ fun PreviewWmListItem() {
 //        },
 //    )
 
-    ethOSListItem(isSubheader = true, trailingContent = { Text(text = "Hallow",fontSize = 20.sp,
+    ethOSListItem(withImage = true, header = "afghm", image = {Image(painter = painterResource(id = R.drawable.nouns), contentDescription = "Contact Profile Pic" )
+    }, withSubheader = true, trailingContent = { Text(text = "Hallow",fontSize = 20.sp,
         fontWeight = FontWeight.Medium,
         color = Color.White)})
 }
