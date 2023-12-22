@@ -44,8 +44,6 @@ fun ethOSCenterTextField(
     //focusRequester: FocusRequester? = null,
     modifier: Modifier = Modifier,
     label: String = "",
-    maxChar: Int = 42,
-    sizeCut: Int = 2,
     singleLine: Boolean = false,//true,
     onTextChanged: (String) -> Unit,
     color: Color = Color.White
@@ -60,10 +58,10 @@ fun ethOSCenterTextField(
     BasicTextField(
         value = text,
         onValueChange = {
-            if(it.length < maxChar){
-                onTextChanged(it)
-            }
-            fontSize = size.sp
+
+            onTextChanged(it)
+
+
         },
         singleLine = singleLine,
         minLines = 1,
@@ -72,7 +70,7 @@ fun ethOSCenterTextField(
             fontFamily = Fonts.INTER,
             textAlign = TextAlign.Center,
             color = color,
-            fontSize = calculateFontSize(text.length,size,sizeCut),
+            fontSize = fontSize,
             fontWeight = FontWeight.SemiBold,
         ),
         modifier = Modifier.fillMaxWidth(),
@@ -102,7 +100,7 @@ fun ethOSCenterTextField(
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Medium,
                     fontSize = size.sp,
-                    color = Color(0xFF9FA2A5),
+                    color = Colors.GRAY,
                     modifier = Modifier.fillMaxWidth()
 
 
@@ -137,9 +135,9 @@ fun ethOSTextField(
     BasicTextField(
         value = text,
         onValueChange = {
-            if(it.length < maxChar){
-                onTextChanged(it)
-            }
+
+            onTextChanged(it)
+
 
             fontSize = size.sp
 
@@ -239,9 +237,12 @@ fun PreviewTextField() {
     ) {
         ethOSCenterTextField(
             text = test,
-            size = 64,
-            label = "0",
-            onTextChanged = { value -> test = value }
+            label = "(Enter address, ENS or QR scan)",
+            modifier = Modifier.weight(1f), //.background(Color.Red),//.fillMaxWidth(0.95f).
+            singleLine = false,
+            onTextChanged = { value -> test = value },
+                    size = 20,
+
 
 //                modifier = Modifier.fillMaxWidth(),
 
