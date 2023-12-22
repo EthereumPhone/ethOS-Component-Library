@@ -3,6 +3,7 @@ package org.ethosmobile.components.library.core
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -64,59 +65,143 @@ fun ethOSListItemsPreview() {
 
 @Composable
 fun ethOSListItem(
-    @DrawableRes drawableRes: Int = R.drawable.baseline_person_outline_24,
+    withImage:Boolean = false,
+    image: @Composable () -> Unit = {},
     header: String = "Header",
+    isSubheader: Boolean = false,
     subheader: String = "Subheader",
-    chatListItem: Boolean = true,
+    trailingContent: @Composable (() -> Unit)? = null,
     backgroundColor: Color = Colors.TRANSPARENT,
     colorOnBackground: Color = Colors.WHITE,
-    msgnumber: Int = 0
+    subheaderColorOnBackground: Color = Colors.WHITE,
+    onClick: () -> Unit = {},
+    modifier: Modifier= Modifier
 
 ) {
-    Row(
-        modifier = Modifier
-            .background(backgroundColor)
-            .padding(horizontal = 14.dp, vertical = 8.dp)
-            .fillMaxWidth()
 
-        ,
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
+
+    Row (
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = modifier.clickable { onClick() },
     ) {
-        Row (
-            verticalAlignment = Alignment.CenterVertically
-        ){
+        if(withImage){
             Box(
                 contentAlignment = Alignment.Center,
-                modifier = Modifier
+                modifier = modifier
                     .clip(CircleShape)
                     .background(Colors.DARK_GRAY)
                     .size(64.dp)
             ) {
-                Image(
-                    painter = painterResource(id = drawableRes),
-                    contentDescription = "",
-                    modifier = Modifier
-                        .size(36.dp),
-                    colorFilter = ColorFilter.tint(Colors.GRAY)
-                )
+                image()
             }
+        }
 
-            Spacer(modifier = Modifier.width(14.dp))
-            Column() {
+        ListItem(
+            headlineContent = {
                 Text(
                     text = header,
-                    color = colorOnBackground,
-                    style = TextStyle(
-                        color = Colors.WHITE,
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        fontFamily = Fonts.INTER,
-                    )
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Colors.WHITE
                 )
-                if(chatListItem){
+            },
+            supportingContent = {
+                if(isSubheader){
                     Text(
                         text = subheader,
+                        color = Colors.GRAY
+                    )
+                }
+
+            },
+            trailingContent = trailingContent,
+
+            colors = ListItemDefaults.colors(
+                headlineColor = colorOnBackground,
+                supportingColor = subheaderColorOnBackground,
+                containerColor = backgroundColor
+            )
+        )
+
+    }
+
+}
+
+
+
+@Composable
+fun ethOSCustomListItem(
+    headlineContent: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    supportingContent: @Composable (() -> Unit)? = null,
+    trailingContent: @Composable (() -> Unit)? = null,
+    backgroundColor: Color = Colors.TRANSPARENT,
+    colorOnBackground: Color = Colors.WHITE,
+    subheaderColorOnBackground: Color = Colors.GRAY,
+    onClick: () -> Unit = {}
+) {
+    ListItem(
+        headlineContent = headlineContent,
+        modifier = modifier.clickable { onClick() },
+        supportingContent = supportingContent,
+        trailingContent = trailingContent,
+        colors = ListItemDefaults.colors(
+            headlineColor = colorOnBackground,
+            supportingColor = subheaderColorOnBackground,
+            containerColor = backgroundColor
+        )
+    )
+}
+
+
+@Composable
+fun ethOSChatListItem(
+    image: @Composable () -> Unit = {},
+    header: String = "Header",
+    subheader: String = "Subheader",
+    time: String = "0:00AM",
+    backgroundColor: Color = Colors.TRANSPARENT,
+    colorOnBackground: Color = Colors.WHITE,
+    subheaderColorOnBackground: Color = Colors.WHITE,
+    msgnumber: Int = 0,
+    onClick: () -> Unit={},
+
+
+) {
+    Row (
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.clickable { onClick() },
+    ){
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier
+                .clip(CircleShape)
+                .background(Colors.DARK_GRAY)
+                .size(64.dp)
+        ) {
+            image()
+        }
+        ListItem(
+            headlineContent = {
+                Text(
+                    text = header,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color.White
+                )
+            },
+            supportingContent = {
+                Text(
+                    text = subheader,
+                    color = Colors.GRAY
+                )
+            },
+            trailingContent = {
+                Column(
+                    horizontalAlignment = Alignment.End
+                ) {
+                    Text(
+                        text = time,
                         color = Colors.GRAY,
                         style = TextStyle(
                             color = Colors.GRAY,
@@ -125,52 +210,20 @@ fun ethOSListItem(
                             fontFamily = Fonts.INTER,
                         )
                     )
+                    ethOSTag(header = ""+msgnumber, primary = true)
+
                 }
-
-            }
-        }
-
-        if(chatListItem){
-            Column(
-                horizontalAlignment = Alignment.End
-            ) {
-                Text(
-                    text = "0:00AM",
-                    color = Colors.GRAY,
-                    style = TextStyle(
-                        color = Colors.GRAY,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Medium,
-                        fontFamily = Fonts.INTER,
-                    )
-                )
-                ethOSTag(header = ""+msgnumber, primary = true)
-
-            }
-        }
-
-    }
-}
+            },
 
 
-@Composable
-fun ModalListItem(
-    headlineContent: @Composable () -> Unit,
-    modifier: Modifier = Modifier,
-    supportingContent: @Composable (() -> Unit)? = null,
-    trailingContent: @Composable (() -> Unit)? = null
-) {
-    ListItem(
-        headlineContent = headlineContent,
-        modifier = modifier,
-        supportingContent = supportingContent,
-        trailingContent = trailingContent,
-        colors = ListItemDefaults.colors(
-            headlineColor = Colors.WHITE,
-            supportingColor = Colors.GRAY,
-            containerColor = Color.Transparent
+            colors = ListItemDefaults.colors(
+                headlineColor = colorOnBackground,
+                supportingColor = subheaderColorOnBackground,
+                containerColor = backgroundColor
+            )
         )
-    )
+    }
+
 }
 
 @Preview
@@ -195,6 +248,8 @@ fun PreviewWmListItem() {
 //        },
 //    )
 
-    ethOSListItem()
+    ethOSListItem(isSubheader = true, trailingContent = { Text(text = "Hallow",fontSize = 20.sp,
+        fontWeight = FontWeight.Medium,
+        color = Color.White)})
 }
 
