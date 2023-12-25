@@ -28,16 +28,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.launch
+import org.ethosmobile.components.library.core.ethOSButton
 //import org.ethosmobile.components.library.core.ethOSTextfield
 import org.ethosmobile.components.library.utils.rememberSnackbarDelegate
 import org.ethosmobile.components.library.theme.ethOSTheme
 
 import org.ethosmobile.components.library.core.ethOSHeader
 import org.ethosmobile.components.library.core.ethOSIconButton
+import org.ethosmobile.components.library.core.ethOSSnackbarHost
 import org.ethosmobile.components.library.core.ethOSTagButton
 import org.ethosmobile.components.library.models.TokenAsset
 import org.ethosmobile.components.library.models.TransferItem
 import org.ethosmobile.components.library.theme.Colors
+import org.ethosmobile.components.library.utils.SnackbarState
 import org.ethosmobile.components.library.walletmanager.ethOSAssetListDetailItem
 import org.ethosmobile.components.library.walletmanager.ethOSAssetListItem
 import org.ethosmobile.components.library.walletmanager.ethOSSimpleAssetListItem
@@ -86,25 +90,32 @@ class MainActivity : ComponentActivity() {
                                         )
                        }
                    )
-                   TokenAsset(
-                        address = "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
-                        chainId = 1,
-                        symbol = "ETH",
-                        name = "Ether",
-                        balance = 0.61
-                   )
+
+//                   TokenAsset(
+//                        address = "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
+//                        chainId = 1,
+//                        symbol = "ETH",
+//                        name = "Ether",
+//                        balance = 0.61
+//                   )
+//
+//
+//        TransferItem(
+//            chainId = 5,
+//            from = "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
+//            to =  "0x8A5E7Ccc2de3D1567C4DDff348678A041ed2e2eB",
+//            asset = "ETH",
+//            value = "2.24",
+//            timeStamp = "1000-19-01 00:00:00",//Clock.System.now().toString(),
+//            userSent = true,
+//            txHash= "0x3fb683c2e61495e26a3159bbefd83d83bd2a70dcebe7d884e4200fcc546714c5",
+//        )
+
+                   val scope = rememberCoroutineScope()
+                   val snackbarHostState = remember { SnackbarHostState() }
+                   val sdeg = rememberSnackbarDelegate(snackbarHostState,scope)
 
 
-        TransferItem(
-            chainId = 5,
-            from = "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
-            to =  "0x8A5E7Ccc2de3D1567C4DDff348678A041ed2e2eB",
-            asset = "ETH",
-            value = "2.24",
-            timeStamp = "1000-19-01 00:00:00",//Clock.System.now().toString(),
-            userSent = true,
-            txHash= "0x3fb683c2e61495e26a3159bbefd83d83bd2a70dcebe7d884e4200fcc546714c5",
-        )
 
                    Column (
                        modifier = Modifier.padding(horizontal = 32.dp),
@@ -162,7 +173,22 @@ class MainActivity : ComponentActivity() {
                           "ETH",
                            onClick = {}
                        )
+                       ethOSSnackbarHost(delegate = sdeg, modifier = Modifier.padding(12.dp))
+
+                       ethOSButton(text = "Test", enabled = true, onClick = {
+                            /*TODO*/
+                           sdeg.coroutineScope.launch {
+                               sdeg.showSnackbar(SnackbarState.SUCCESS,"DEFAULT")
+                           }
+
+                       })
+
+
                    }
+
+
+
+
                }
             }
         }

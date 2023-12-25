@@ -36,6 +36,8 @@ class SnackbarDelegate(
 
     var snackbarIcon = R.drawable.outline_info_24
 
+    var snackbarText = "Snackbar"
+
 
 
     fun showSnackbar(
@@ -60,6 +62,8 @@ class SnackbarDelegate(
             SnackbarState.SUCCESS -> R.drawable.baseline_check_24
             SnackbarState.WARNING -> R.drawable.outline_warning_24
         }
+
+        this.snackbarText = message
 
         coroutineScope?.launch {
             snackbarHostState?.showSnackbar(message=message, actionLabel=actionLabel, withDismissAction=true,duration=duration)

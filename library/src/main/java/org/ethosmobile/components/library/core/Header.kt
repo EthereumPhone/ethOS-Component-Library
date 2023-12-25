@@ -14,8 +14,11 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.IconButton
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.rounded.ArrowBackIosNew
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -127,18 +130,12 @@ fun PreviewHeader() {
             .background(Colors.BLACK)//.padding(start = 24.dp, end = 24.dp)
     ) {
         ethOSHeader(
-            title = "Send",
-            isBackButton = false,
-            isTrailContent = false,
-            trailContent = { },
-            isBottomContent = true,
-            bottomContent = {
-                Spacer(modifier = Modifier.height(12.dp))
-                ethOSNetworkPill(
-                    address = "0xfebo235b5kcten3452b45b4o",
-                    network="Mainnet",
-                    chainColor=Colors.ERROR
-                )
+            title = "",
+            isBackButton = true,
+            isTrailContent = true,
+            trailContent = {
+                ethOSIconButton(onClick = { /*TODO*/ }, icon = Icons.Filled.Add,)
+
             }
         )
     }

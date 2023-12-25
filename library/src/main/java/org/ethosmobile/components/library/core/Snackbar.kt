@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Button
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Snackbar
 import androidx.compose.material3.SnackbarData
 import androidx.compose.material3.SnackbarHost
@@ -56,15 +57,18 @@ fun ethOSSnackbarPreview() {
         val hostState = remember { SnackbarHostState() }
         val s = rememberSnackbarDelegate(hostState,scope)
 
-        /*Scaffold(
-            scaffoldState= scaff,
-        ) {*/
+        Scaffold(
+
+            snackbarHost={
+                ethOSSnackbarHost(delegate = s, modifier = Modifier.padding(12.dp))
+            }
+        ) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(Colors.BLACK)
                     //.padding(8.dp)
-                    //.padding(paddingValues = it)
+                    .padding(paddingValues = it)
             ) {
 
                 Column(modifier = Modifier.fillMaxSize()) {
@@ -117,9 +121,8 @@ fun ethOSSnackbarPreview() {
                         containerColor = white
                     )
                 }*/
-                ethOSSnackbarHost(delegate = s, modifier = Modifier.padding(12.dp).align(alignment = Alignment.BottomStart))
-            }
-        //}
+                }
+        }
 
 
     }
@@ -127,9 +130,8 @@ fun ethOSSnackbarPreview() {
 
 @Composable
 fun ethOSSnackBar(
-    @DrawableRes drawableRes: Int,
     delegate: SnackbarDelegate,
-    message: String,
+
     //isRtl: Boolean = true,
     //containerColor: Color = white
 ) {
@@ -149,7 +151,7 @@ fun ethOSSnackBar(
                 horizontalArrangement = Arrangement.SpaceBetween
                     ){
                 Text(
-                    text = message,
+                    text = delegate.snackbarText,
                     style = TextStyle(
                         color = delegate.snackbarOnColor,
                         fontSize = 18.sp,
@@ -179,9 +181,7 @@ fun ethOSSnackbarHost(
             hostState = delegate.snackbarHostState
         ) { snackbarData: SnackbarData ->
             ethOSSnackBar(
-                R.drawable.baseline_check_24,
                 delegate,
-                "ethOS Component Library"
             ) }
     }
 }
