@@ -32,12 +32,13 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
 import org.ethosmobile.components.library.R
 import org.ethosmobile.components.library.models.OnboardingItem
+import org.ethosmobile.components.library.models.OnboardingObject
 import org.ethosmobile.components.library.theme.Colors
 import org.ethosmobile.components.library.theme.Fonts
 
 
 @Composable
-fun WelcomeModalBottomSheet(onDismiss: () -> Unit) {
+fun WelcomeModalBottomSheet(onDismiss: () -> Unit, onboardingObject: OnboardingObject) {
 
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -48,9 +49,9 @@ fun WelcomeModalBottomSheet(onDismiss: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Icon(painterResource(id = R.drawable.wallet), contentDescription = "WalletManager",tint = Color.White, modifier = Modifier.size(56.dp))
+            Icon(painterResource(id = onboardingObject.imageVector), contentDescription = onboardingObject.title,tint = Colors.WHITE, modifier = Modifier.size(56.dp))
             Text(
-                text = "WalletManager",
+                text = onboardingObject.title,
                 textAlign = TextAlign.Center,
                 fontSize = 32.sp,
                 color = Colors.WHITE,
@@ -60,7 +61,8 @@ fun WelcomeModalBottomSheet(onDismiss: () -> Unit) {
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(42.dp)
         ){
-            onboardingItems.forEach { item ->
+
+            onboardingObject.items.forEach { item ->
                 item{
                     OnboardingListItem(item)
                 }
@@ -110,17 +112,17 @@ fun OnboardingListItem(item: OnboardingItem){
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ethOSOnboardingModalBottomSheet(onDismiss: () -> Unit, sheetState: SheetState){
+fun ethOSOnboardingModalBottomSheet(onDismiss: () -> Unit, sheetState: SheetState, onboardingObject: OnboardingObject){
 
     ModalBottomSheet(
-        containerColor= Color.Black,
-        contentColor= Color.White,
+        containerColor= Colors.BLACK,
+        contentColor= Colors.WHITE,
 
         onDismissRequest = onDismiss,
         sheetState = sheetState
     ) {
 
-        WelcomeModalBottomSheet(onDismiss)
+        WelcomeModalBottomSheet(onDismiss, onboardingObject)
     }
 }
 
@@ -131,38 +133,38 @@ fun ethOSOnboardingModalBottomSheetPreview() {
     val modalSheetState = rememberModalBottomSheetState(true)
     val coroutineScope = rememberCoroutineScope()
 
-    ethOSOnboardingModalBottomSheet(
-        onDismiss = {
-            coroutineScope.launch {
-                modalSheetState.hide()
-            }.invokeOnCompletion {
-
-            }
-        },
-        sheetState = modalSheetState
-    )
+//    ethOSOnboardingModalBottomSheet(
+//        onDismiss = {
+//            coroutineScope.launch {
+//                modalSheetState.hide()
+//            }.invokeOnCompletion {
+//
+//            }
+//        },
+//        sheetState = modalSheetState
+//    )
 
 }
 
 //Different between native apps
-val onboardingItems = listOf(
-    OnboardingItem(
-        imageVector = Icons.Filled.Wallet,
-        title= "Generated System Wallet",
-        subtitle = "Your personal ethOS address is managed by the wallet manager when connecting to ethOS native apps."
-    ),
-    OnboardingItem(
-        imageVector = Icons.Outlined.Send,
-        title= "Send & Receive Crypto",
-        subtitle = "Seamlessly send and receive ethereum across chains through the system wallet."
-    ),
-    OnboardingItem(
-        imageVector = Icons.Rounded.SwapVert,
-        title= "Swap Tokens",
-        subtitle = "Swap any ERC-20 Token directly on your phone."
-    )
-
-)
+//val onboardingItems = listOf(
+//    OnboardingItem(
+//        imageVector = Icons.Filled.Wallet,
+//        title= "Generated System Wallet",
+//        subtitle = "Your personal ethOS address is managed by the wallet manager when connecting to ethOS native apps."
+//    ),
+//    OnboardingItem(
+//        imageVector = Icons.Outlined.Send,
+//        title= "Send & Receive Crypto",
+//        subtitle = "Seamlessly send and receive ethereum across chains through the system wallet."
+//    ),
+//    OnboardingItem(
+//        imageVector = Icons.Rounded.SwapVert,
+//        title= "Swap Tokens",
+//        subtitle = "Swap any ERC-20 Token directly on your phone."
+//    )
+//
+//)
 
 
 

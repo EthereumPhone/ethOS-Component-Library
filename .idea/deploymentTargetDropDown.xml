@@ -28,7 +28,20 @@
         <State />
       </entry>
       <entry key="demo">
-        <State />
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="$USER_HOME$/.android/avd/Pixel_7_Pro_API_34.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2023-12-25T17:19:55.490657Z" />
+        </State>
       </entry>
       <entry key="ethOSSnackbarPreview">
         <State />
