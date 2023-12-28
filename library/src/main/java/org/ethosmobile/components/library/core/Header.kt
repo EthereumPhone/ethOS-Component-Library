@@ -34,6 +34,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.ethosmobile.components.library.theme.Colors
@@ -43,6 +44,7 @@ import org.ethosmobile.components.library.theme.Fonts
 fun ethOSHeader(
     modifier: Modifier = Modifier,
     title: String,
+    titleSize: TextUnit = 28.sp,
     isBackButton: Boolean = false,
     onBackClick: () -> Unit = {},
     isTrailContent: Boolean = false,
@@ -93,7 +95,7 @@ fun ethOSHeader(
                 modifier = modifier.weight(1f),
                 textAlign = TextAlign.Center,
                 text = title,
-                fontSize = 28.sp,
+                fontSize = titleSize,
                 color = Color.White,
                 fontWeight = FontWeight.SemiBold,
                 fontFamily = Fonts.INTER,
