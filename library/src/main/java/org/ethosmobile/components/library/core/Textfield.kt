@@ -2,6 +2,7 @@ package org.ethosmobile.components.library.core
 
 //import androidx.compose.ui.tooling.preview.Preview
 import android.util.Log
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -13,6 +14,8 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -27,6 +30,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
@@ -178,6 +182,55 @@ fun ethOSTextField(
             innerTextField()
         }
     }
+
+
+}
+
+
+@Composable
+fun ethOSFilledIconTextField(
+    value: String,
+    onChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
+    placeholder: @Composable (() -> Unit)? = null,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    focusedContainerColor: Color = Colors.TRANSPARENT,
+    unfocusedContainerColor: Color = Colors.TRANSPARENT,
+    focusedTextColor: Color = Colors.WHITE,
+    unfocusedTextColor: Color = Colors.WHITE,
+    cursorColor: Color = Colors.WHITE,
+    focusedIndicatorColor: Color = Colors.GRAY
+
+) {
+
+    TextField(
+        colors= TextFieldDefaults.colors(
+            focusedContainerColor = focusedContainerColor,
+            unfocusedContainerColor = unfocusedContainerColor,
+            focusedTextColor = focusedTextColor,
+            unfocusedTextColor = unfocusedTextColor,
+            cursorColor = cursorColor,
+            focusedIndicatorColor = focusedIndicatorColor
+        ),
+        textStyle = LocalTextStyle.current.copy(
+            color = Colors.WHITE,
+
+            fontSize = 18.sp,
+            fontWeight = FontWeight.SemiBold
+        ),
+        value = value,
+        onValueChange = onChange,
+        modifier = modifier,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
+        shape = RoundedCornerShape(8.dp),
+        placeholder = placeholder,
+        keyboardOptions = keyboardOptions
+    )
 
 
 }
