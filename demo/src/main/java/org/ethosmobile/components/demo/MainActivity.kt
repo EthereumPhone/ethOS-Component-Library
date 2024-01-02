@@ -122,7 +122,7 @@ class MainActivity : ComponentActivity() {
                        verticalArrangement = Arrangement.spacedBy(32.dp),
                        horizontalAlignment = Alignment.CenterHorizontally
                    ){
-                       ethOSSimpleAssetListItem(title = "Mainnet", value = 0.61)
+                       ethOSSimpleAssetListItem(title = "Mainnet", value = "0,61")
                        ethOSAssetListItem(title = "ETH" ,assets = listOf(
                            TokenAsset(
                                address = "0xdf5c7149d624D7bEac667edF6688bb89ED80cf73",
