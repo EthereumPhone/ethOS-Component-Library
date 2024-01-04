@@ -61,18 +61,10 @@ fun ethOSInfoDialog(
 
                     Row(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
+                        horizontalArrangement = Arrangement.Center,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Icon(
-                            imageVector = Icons.Rounded.Close,
-                            contentDescription = "",
-                            tint = Colors.TRANSPARENT,//(0xFF24303D),
-                            modifier = Modifier
-                                .width(30.dp)
-                                .height(30.dp)
-
-                        )
+                        
                         Text(
                             text = title,
                             style = TextStyle(
@@ -81,15 +73,7 @@ fun ethOSInfoDialog(
                                 fontWeight = FontWeight.SemiBold
                             )
                         )
-                        Icon(
-                            imageVector = Icons.Rounded.Close,
-                            contentDescription = "Close",
-                            tint = Colors.GRAY,
-                            modifier = Modifier
-                                .width(30.dp)
-                                .height(30.dp)
-                                .clickable { setShowDialog() }
-                        )
+
                     }
                     Spacer(modifier = Modifier.height(12.dp))
 
