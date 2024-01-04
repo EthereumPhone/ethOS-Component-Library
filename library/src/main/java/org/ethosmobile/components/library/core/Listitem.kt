@@ -38,6 +38,7 @@ import androidx.compose.material3.ListItemDefaults
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import org.ethosmobile.components.library.theme.Colors
 import org.ethosmobile.components.library.theme.Fonts
@@ -68,6 +69,7 @@ fun ethOSListItemsPreview() {
 fun ethOSListItem(
     withImage:Boolean = false,
     image: @Composable () -> Unit = {},
+    textSize: TextUnit = 20.sp,
     header: String = "Header",
     withSubheader: Boolean = false,
     subheader: String = "Subheader",
@@ -101,7 +103,7 @@ fun ethOSListItem(
             headlineContent = {
                 Text(
                     text = header,
-                    fontSize = 20.sp,
+                    fontSize = textSize,
                     fontWeight = FontWeight.Medium,
                     color = Colors.WHITE,
                     overflow = TextOverflow.Ellipsis,

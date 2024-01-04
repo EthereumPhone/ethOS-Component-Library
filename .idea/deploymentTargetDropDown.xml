@@ -2,10 +2,16 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="Demo_ExposedDropdownMenuBox">
+        <State />
+      </entry>
       <entry key="OnboardingModalBottomSheetPreview">
         <State />
       </entry>
       <entry key="PreviewHeader">
+        <State />
+      </entry>
+      <entry key="PreviewSwitchBlock">
         <State />
       </entry>
       <entry key="PreviewTextField">
@@ -24,9 +30,6 @@
           <timeTargetWasSelectedWithDropDown value="2023-12-22T15:24:19.735589Z" />
         </State>
       </entry>
-      <entry key="TransferListItemPreview">
-        <State />
-      </entry>
       <entry key="demo">
         <State>
           <targetSelectedWithDropDown>
@@ -42,9 +45,6 @@
           </targetSelectedWithDropDown>
           <timeTargetWasSelectedWithDropDown value="2023-12-25T17:19:55.490657Z" />
         </State>
-      </entry>
-      <entry key="ethOSSnackbarPreview">
-        <State />
       </entry>
     </value>
   </component>

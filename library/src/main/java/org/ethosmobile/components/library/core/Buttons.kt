@@ -74,14 +74,25 @@ fun ethOSButton(
     modifier: Modifier = Modifier,
     text: String, enabled: Boolean,
     onClick: () -> Unit,
+    disabledBackgroundColor: Color = Colors.GRAY,
+    disabledContentColor: Color = Colors.WHITE ,//if(primary) (if(isPressed) positive else warning ) else blue,
+    contentColor: Color = Colors.BLACK,
+    backgroundColor: Color = Colors.WHITE,
     interactionSource: MutableInteractionSource =
         remember { MutableInteractionSource() }
 ) {
     Button(
         interactionSource = interactionSource,
         onClick = onClick,
-        shape = RoundedCornerShape(50.dp),
+        shape = CircleShape,
         enabled = enabled,
+        elevation = ButtonDefaults.elevation(
+            defaultElevation = 0.dp,
+            pressedElevation = 0.dp,
+            focusedElevation = 2.dp,
+            hoveredElevation = 5.dp,
+            disabledElevation = 0.dp
+        ),
         modifier = modifier
             .fillMaxWidth()
             .height(54.dp)
@@ -89,10 +100,10 @@ fun ethOSButton(
         ,
         contentPadding= PaddingValues(horizontal = 8.dp, vertical = 8.dp),
         colors = ButtonDefaults.buttonColors(
-            disabledBackgroundColor = Colors.GRAY,
-            disabledContentColor = Colors.WHITE ,//if(primary) (if(isPressed) positive else warning ) else blue,
-            contentColor = Colors.BLACK,
-            backgroundColor = Colors.WHITE
+            disabledBackgroundColor = disabledBackgroundColor,
+            disabledContentColor = disabledContentColor,//if(primary) (if(isPressed) positive else warning ) else blue,
+            contentColor = contentColor,
+            backgroundColor = backgroundColor
         )
     ) {
 
@@ -103,7 +114,7 @@ fun ethOSButton(
         ){
             Text(
                 text=text,
-                color= Colors.BLACK,
+                color= contentColor,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 18.sp,
                 fontFamily = Fonts.INTER

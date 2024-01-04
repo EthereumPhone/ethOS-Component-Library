@@ -49,7 +49,7 @@ fun WelcomeModalBottomSheet(onDismiss: () -> Unit, onboardingObject: OnboardingO
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Icon(painterResource(id = onboardingObject.imageVector), contentDescription = onboardingObject.title,tint = Colors.WHITE, modifier = Modifier.size(56.dp))
+            //Icon(painterResource(id = onboardingObject.imageVector), contentDescription = onboardingObject.title,tint = Colors.WHITE, modifier = Modifier.size(56.dp))
             Text(
                 text = onboardingObject.title,
                 textAlign = TextAlign.Center,
