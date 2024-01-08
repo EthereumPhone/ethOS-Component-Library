@@ -112,7 +112,6 @@ fun ethOSSelectDialog(
                             ) {
                                 Column (
                                     horizontalAlignment = Alignment.CenterHorizontally,
-                                    verticalArrangement = Arrangement.spacedBy(8.dp)
                                 ) {
                                     Icon(
                                         imageVector = firstOptionIcon,
@@ -150,7 +149,7 @@ fun ethOSSelectDialog(
                                         style = TextStyle(
                                             fontSize = 14.sp,
                                             fontFamily = Fonts.INTER,
-                                            fontWeight = FontWeight.Medium,
+                                            fontWeight = FontWeight.SemiBold,
                                             textAlign = TextAlign.Center
                                         )
                                     )
