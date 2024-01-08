@@ -64,7 +64,7 @@ fun ethOSInfoDialog(
                         horizontalArrangement = Arrangement.Center,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        
+
                         Text(
                             text = title,
                             style = TextStyle(
