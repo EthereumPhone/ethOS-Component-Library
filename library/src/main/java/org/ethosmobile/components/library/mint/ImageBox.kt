@@ -72,7 +72,7 @@ fun ethOSImageBox(
                 )
                 Spacer(modifier = Modifier.width(18.dp))
                 Text(
-                    text = "Select Image",
+                    text = "Select image",
                     fontSize = 18.sp,
                     color = Colors.GRAY,
                     fontWeight = FontWeight.SemiBold,
