@@ -24,7 +24,7 @@ fun ethOSSimpleAssetListItem(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(text = title.uppercase(), fontFamily = Fonts.INTER, fontWeight = FontWeight.SemiBold, fontSize = 18.sp, modifier = Modifier.weight(0.4f), color = Color.White)
+        Text(text = title, fontFamily = Fonts.INTER, fontWeight = FontWeight.SemiBold, fontSize = 18.sp, modifier = Modifier.weight(0.4f), color = Color.White)
         Text(text = "${value.replace(",", ".").toDouble()}",fontFamily = Fonts.INTER, fontWeight = FontWeight.Medium, fontSize = 18.sp, textAlign = TextAlign.End, modifier = Modifier.weight(0.30f), color = Color.White )
         //Text(text = fiatAmount,fontFamily = Fonts.INTER, fontWeight = FontWeight.Medium, fontSize = 18.sp, textAlign = TextAlign.End, modifier = Modifier.weight(0.30f), color = Color(0xFF9FA2A5))
     }

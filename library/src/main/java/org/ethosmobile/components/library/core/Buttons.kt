@@ -6,6 +6,7 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -132,16 +133,19 @@ fun ethOSIconButton(
     icon: ImageVector,
     contentDescription: String? = null,
 ) = Column(
-    horizontalAlignment = Alignment.CenterHorizontally
+    horizontalAlignment = Alignment.CenterHorizontally,
+    modifier = Modifier.clickable {
+        onClick()
+    }
 ) {
     IconButton(
         onClick = onClick,
         colors = IconButtonDefaults.filledIconButtonColors(containerColor = Color.Transparent),
-        modifier = Modifier.size(48.dp)
+        modifier = Modifier.size(54.dp)
     ) {
         Icon(
             imageVector = icon,
-            modifier = Modifier.size(32.dp),
+            modifier = Modifier.size(36.dp),
             contentDescription = contentDescription,
             tint = Color.White//(0xFF24303D)//background
         )
@@ -151,7 +155,7 @@ fun ethOSIconButton(
             text = contentDescription,
             color = Color.White,
             modifier = Modifier.padding(top = 4.dp),
-            fontSize = 16.sp,
+            fontSize = 18.sp,
             fontFamily = Fonts.INTER,
             fontWeight = FontWeight.Medium
         )
