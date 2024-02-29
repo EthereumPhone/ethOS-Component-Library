@@ -1,6 +1,7 @@
 package org.ethosmobile.components.library.core
 
 //import androidx.compose.ui.tooling.preview.Preview
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -118,6 +119,8 @@ fun ethOSCenterTextField(
 
 }
 
+@OptIn(ExperimentalComposeUiApi::class)
+@SuppressLint("SuspiciousIndentation")
 @Composable
 fun ethOSTextField(
     text: String,
@@ -129,59 +132,85 @@ fun ethOSTextField(
     sizeCut: Int = 2,
     numberInput: Boolean = false,
     onTextChanged: (String) -> Unit,
-    color: Color = Color.White
+    color: Color = Color.White,
+    center: Boolean = false,
 ) {
 
     var isFocused by remember { mutableStateOf(false) }
+    val focusRequester = FocusRequester()
     var fontSize by remember { mutableStateOf(size.sp) }
+    //val keyboardController = LocalSoftwareKeyboardController.current
+
+
+    val context = LocalContext.current
 
 
     BasicTextField(
         value = text,
+        readOnly = false,
         onValueChange = {
-
-            onTextChanged(it)
-
-
+            if(it.length < maxChar){
+                onTextChanged(it)
+            }
             fontSize = size.sp
-
         },
-        keyboardOptions = if(numberInput) KeyboardOptions(keyboardType = KeyboardType.Number) else KeyboardOptions(keyboardType = KeyboardType.Text),
+        keyboardActions = KeyboardActions(
+            onDone = {
+                // Clear focus when the user presses the "Done" button on the keyboard
+//                    focusManager.clearFocus()
+                focusRequester.requestFocus()
+                //Toast.makeText(context,"Hallo",Toast.LENGTH_LONG).show()
+
+                //keyboardController?.hide() // Hide the keyboard
+            }
+        ),
+        keyboardOptions = if(numberInput) KeyboardOptions(keyboardType = KeyboardType.Number,imeAction = ImeAction.Done) else KeyboardOptions(keyboardType = KeyboardType.Text,imeAction = ImeAction.Done),
         singleLine = singleLine,
         minLines = 1,
         maxLines = 2,
         textStyle = LocalTextStyle.current.copy(
-            fontFamily = Fonts.INTER,
             color = color,
             fontSize = calculateFontSize(text.length,size,sizeCut),
             fontWeight = FontWeight.SemiBold
         ),
-        modifier = Modifier.width(IntrinsicSize.Min),
-        cursorBrush = SolidColor(Color.White),
 
-
-
+        modifier = modifier
+            .focusRequester(focusRequester)
+            .onFocusChanged { focusState ->
+                isFocused = focusState.isFocused
+            }
+            .width(IntrinsicSize.Min)
+            .onKeyEvent {
+                if (it.nativeKeyEvent.keyCode.toLong() == Key.NumPadEnter.keyCode){
+                    focusRequester.requestFocus()
+                    true
+                }
+                false
+            },
+        cursorBrush = SolidColor(if (isFocused) Color.White else Color.Green),
     ) { innerTextField ->
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center,
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
         ) {
             if (!isFocused && text.isEmpty()) {
                 Text(
                     text = label,
-                    textAlign = TextAlign.Start,
+                    textAlign = if(center) TextAlign.Center else TextAlign.Start ,
                     fontWeight = FontWeight.Medium,
-                    fontFamily = Fonts.INTER,
                     fontSize = size.sp,
-                    color = Colors.GRAY,
-                    modifier = Modifier.fillMaxWidth()
+                    color = Color(0xFF9FA2A5),
+                    modifier = modifier.fillMaxWidth()
                 )
             }
             innerTextField()
         }
     }
+
+
+
 
 
 }
