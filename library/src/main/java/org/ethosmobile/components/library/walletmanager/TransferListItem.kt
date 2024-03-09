@@ -1,6 +1,7 @@
 package org.ethosmobile.components.library.walletmanager
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -46,6 +47,9 @@ fun ethOSTransferListItem(
     Row (
         modifier = Modifier
             .fillMaxWidth()
+            .clickable {
+                onCardClick()
+            }
             .padding(vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(24.dp),
