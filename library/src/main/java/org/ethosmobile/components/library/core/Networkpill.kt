@@ -40,13 +40,15 @@ fun ethOSNetworkPill(
     address: String,
     network: String,
     chainColor: Color,
+    onClick: () -> Unit
 ) {
 
 
     val context = LocalContext.current
     Surface (
         modifier = modifier.clip(CircleShape).clickable {
-            copyTextToClipboard(context,address)
+            onClick()
+            //copyTextToClipboard(context,address)
         },
         color = Colors.DARK_GRAY,
         contentColor = Colors.WHITE
@@ -115,5 +117,6 @@ fun ethOSNetworkPillPreview() {
     address= "0xfebo235b5kcten3452b45b4o",
     network= "Mainnet",
     chainColor= Colors.SUCCESS,
+        onClick = {}
     )
 }
