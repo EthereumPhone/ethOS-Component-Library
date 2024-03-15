@@ -36,7 +36,7 @@ import org.ethosmobile.components.library.theme.Fonts
 
 @Composable
 fun ethOSNetworkPill(
-    modifier: Modifier=Modifier,
+    modifier: Modifier = Modifier,
     address: String,
     network: String,
     chainColor: Color,
