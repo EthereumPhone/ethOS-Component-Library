@@ -2,7 +2,7 @@ package org.ethosmobile.components.library.theme
 
 import org.ethosmobile.components.library.R
 
-class Logo {
+class Logos {
     companion object {
         val ETHEREUM_LOGO = R.drawable.ethereum_logo
         val OPTIMISM_LOGO = R.drawable.optimism_logo
