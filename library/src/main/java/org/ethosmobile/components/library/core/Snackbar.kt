@@ -3,6 +3,8 @@ package org.ethosmobile.components.library.core
 
 
 import android.annotation.SuppressLint
+
+import android.graphics.drawable.Drawable
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -29,6 +31,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -130,15 +133,20 @@ fun ethOSSnackbarPreview() {
 
 @Composable
 fun ethOSSnackBar(
-    delegate: SnackbarDelegate,
+    //delegate: SnackbarDelegate,
+    snackbarOnColor: Color,
+    snackbarBackgroundColor: Color,
+    snackbarText: String,
+    snackbarIcon: Int,
+
 
     //isRtl: Boolean = true,
     //containerColor: Color = white
 ) {
     Snackbar(
-        contentColor = delegate.snackbarOnColor,
+        contentColor = snackbarOnColor,
         shape =  RoundedCornerShape(12.dp),
-        containerColor = delegate.snackbarBackgroundColor,
+        containerColor = snackbarBackgroundColor,
     ) {
         /*CompositionLocalProvider(
             LocalLayoutDirection provides
@@ -151,9 +159,9 @@ fun ethOSSnackBar(
                 horizontalArrangement = Arrangement.SpaceBetween
                     ){
                 Text(
-                    text = delegate.snackbarText,
+                    text = snackbarText,
                     style = TextStyle(
-                        color = delegate.snackbarOnColor,
+                        color = snackbarOnColor,
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Medium,
                         fontFamily = Fonts.INTER,
@@ -161,8 +169,8 @@ fun ethOSSnackBar(
                 )
                 Image(
                     modifier = Modifier.size(24.dp),
-                    colorFilter = ColorFilter.tint(delegate.snackbarOnColor),
-                    painter = painterResource(id = delegate.snackbarIcon),
+                    colorFilter = ColorFilter.tint(snackbarOnColor),
+                    painter = painterResource(id = snackbarIcon),
                     contentDescription = "Snackbar icon"
                 )
             }
@@ -181,7 +189,10 @@ fun ethOSSnackbarHost(
             hostState = delegate.snackbarHostState
         ) { snackbarData: SnackbarData ->
             ethOSSnackBar(
-                delegate,
+                delegate.snackbarOnColor,
+                delegate.snackbarBackgroundColor,
+                delegate.snackbarText,
+                delegate.snackbarIcon,
             ) }
     }
 }

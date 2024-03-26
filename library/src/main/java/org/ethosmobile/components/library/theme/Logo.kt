@@ -10,7 +10,7 @@ class Logos {
         val BASE_LOGO = R.drawable.base_logo
         val GOERLI_LOGO = R.drawable.goerli_logo
         val POLYGON_LOGO = R.drawable.polygon_logo
-        val ZORA_LOGO = R.drawable.zora_wordmark_white
+        val ZORA_LOGO = R.drawable.base_logo
 
     }
 }
