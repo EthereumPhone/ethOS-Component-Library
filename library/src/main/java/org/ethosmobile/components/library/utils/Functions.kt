@@ -3,7 +3,12 @@ package org.ethosmobile.components.library.utils
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.net.NetworkRequest
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.LifecycleOwner
 import java.text.DecimalFormat
 
 /**
@@ -40,4 +45,31 @@ fun isWifiConnected(context: Context): Boolean {
     val activeNetwork = connectivityManager.activeNetwork ?: return false
     val capabilities = connectivityManager.getNetworkCapabilities(activeNetwork) ?: return false
     return capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+}
+
+fun registerNetworkCallback(context: Context, lifecycleOwner: LifecycleOwner, wifiConnected: MutableState<Boolean>) {
+    val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val networkRequest = NetworkRequest.Builder()
+        .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+        .build()
+
+    val networkCallback = object : ConnectivityManager.NetworkCallback() {
+        override fun onAvailable(network: android.net.Network) {
+            wifiConnected.value = true
+        }
+
+        override fun onLost(network: android.net.Network) {
+            wifiConnected.value = false
+        }
+    }
+
+    // Register callback to listen for Wi-Fi connectivity changes
+    connectivityManager.registerNetworkCallback(networkRequest, networkCallback)
+
+    // Make sure to unregister the callback when the lifecycle owner is destroyed
+    lifecycleOwner.lifecycle.addObserver(LifecycleEventObserver { _, event ->
+        if (event == Lifecycle.Event.ON_DESTROY) {
+            connectivityManager.unregisterNetworkCallback(networkCallback)
+        }
+    })
 }
