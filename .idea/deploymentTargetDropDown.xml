@@ -5,30 +5,14 @@
       <entry key="Demo_ExposedDropdownMenuBox">
         <State />
       </entry>
-      <entry key="OnboardingModalBottomSheetPreview">
+      <entry key="PreviewHeader">
         <State />
       </entry>
-      <entry key="PreviewHeader">
+      <entry key="PreviewShimmerListItem">
         <State />
       </entry>
       <entry key="PreviewSwitchBlock">
         <State />
-      </entry>
-      <entry key="PreviewTextField">
-        <State>
-          <targetSelectedWithDropDown>
-            <Target>
-              <type value="QUICK_BOOT_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="$USER_HOME$/.android/avd/Pixel_7_Pro_API_34.avd" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2023-12-22T15:24:19.735589Z" />
-        </State>
       </entry>
       <entry key="demo">
         <State>
@@ -45,6 +29,9 @@
           </targetSelectedWithDropDown>
           <timeTargetWasSelectedWithDropDown value="2023-12-25T17:19:55.490657Z" />
         </State>
+      </entry>
+      <entry key="ethOSTabRowPreview">
+        <State />
       </entry>
     </value>
   </component>
