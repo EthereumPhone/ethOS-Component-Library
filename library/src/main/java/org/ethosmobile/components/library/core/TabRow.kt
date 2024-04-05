@@ -169,11 +169,11 @@ private fun ethOSTabItem(
             .width(tabWidth)
             .padding(
                 vertical = 4.dp,
-                horizontal = 8.dp,
+                horizontal = 4.dp,
             ),
         text = text,
         fontFamily = Fonts.INTER,
-        fontSize = 18.sp,
+        fontSize = 14.sp,
         fontWeight = FontWeight.SemiBold,
         color = tabTextColor,
         textAlign = TextAlign.Center,
@@ -185,7 +185,7 @@ fun ethOSTabRow(
     selectedItemIndex: Int,
     items: List<String>,
     modifier: Modifier = Modifier,
-    tabWidth: Dp = 100.dp,
+    tabWidth: Dp = 80.dp,
     onClick: (index: Int) -> Unit,
 ) {
     val indicatorOffset: Dp by animateDpAsState(

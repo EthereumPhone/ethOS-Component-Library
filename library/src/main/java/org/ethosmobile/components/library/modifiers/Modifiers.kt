@@ -84,6 +84,7 @@ fun PreviewShimmerListItem(
         ShimmerListItem(true,{})
     }
 }
+
 fun Modifier.shimmerEffect(): Modifier = composed {
     var size by remember {
         mutableStateOf(IntSize.Zero)
