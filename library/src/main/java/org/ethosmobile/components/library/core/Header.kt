@@ -47,50 +47,49 @@ fun ethOSHeader(
     titleSize: TextUnit = 28.sp,
     isBackButton: Boolean = false,
     onBackClick: () -> Unit = {},
+    isBeginContent: Boolean = false,
+    beginContent: @Composable () -> Unit = {},
     isTrailContent: Boolean = false,
     trailContent: @Composable () -> Unit = {},
     isBottomContent: Boolean = false,
-    bottomContent: @Composable () -> Unit = {}//String = "",
-
+    bottomContent: @Composable () -> Unit = {}
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
-            .background(Colors.BLACK)
+            .background(Color.Black)
             .padding(vertical = 24.dp, horizontal = 24.dp)
     ) {
         Row(
             modifier = modifier
                 .fillMaxWidth(),
-            horizontalArrangement = if (isBackButton || isTrailContent) Arrangement.SpaceBetween else Arrangement.Center,
+            horizontalArrangement = if (isBackButton || isBeginContent || isTrailContent) Arrangement.SpaceBetween else Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-
             Row(
                 horizontalArrangement = Arrangement.Start,
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = modifier.width(if (isBackButton || isTrailContent) 64.dp else 10.dp)
-
-
+                modifier = modifier.width(if (isBackButton || isBeginContent) 64.dp else 10.dp)
             ) {
-
-                if(isBackButton){
+                if (isBackButton) {
                     IconButton(
                         onClick = onBackClick
                     ) {
                         Icon(
                             imageVector = Icons.Rounded.ArrowBackIosNew,
                             contentDescription = "Go back",
-                            tint =  Colors.WHITE,
+                            tint = Color.White,
                             modifier = modifier.size(32.dp)
                         )
                     }
                 }
 
-
+                if (isBeginContent) {
+                    beginContent()
+                }
             }
 
-            //Header title
+            // Header title
             Text(
                 modifier = modifier.weight(1f),
                 textAlign = TextAlign.Center,
@@ -101,25 +100,21 @@ fun ethOSHeader(
                 fontFamily = Fonts.INTER,
             )
 
-//            Warning or info
+            // Trail content or icons
             Row(
                 horizontalArrangement = Arrangement.End,
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = modifier.width(if (isBackButton || isTrailContent) 64.dp else 10.dp)
-
-
             ) {
-
-                if (isTrailContent){
+                if (isTrailContent) {
                     trailContent()
                 }
             }
         }
-        if (isBottomContent){
+        if (isBottomContent) {
             bottomContent()
         }
     }
-    //Divider(color = Colors.DARK_GRAY)
 }
 
 
@@ -133,12 +128,15 @@ fun PreviewHeader() {
     ) {
         ethOSHeader(
             title = "",
-            isBackButton = true,
+            isBackButton = false,
             isTrailContent = true,
             trailContent = {
                 ethOSIconButton(onClick = { /*TODO*/ }, icon = Icons.Filled.Add,)
-
-            }
+            },
+            isBeginContent = true,
+            beginContent = {
+                ethOSIconButton(onClick = { /*TODO*/ }, icon = Icons.Outlined.Info)
+            },
         )
     }
 
