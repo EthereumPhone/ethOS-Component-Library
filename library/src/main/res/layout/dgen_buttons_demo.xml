@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <!-- 
+    USAGE: To apply system colors to these buttons, call:
+    
+    DgenButtonUtils.applyPrimaryButtonColors(this, primaryButton, disabledPrimaryButton, customButton)
+    DgenButtonUtils.applySecondaryButtonColors(this, secondaryButton, disabledSecondaryButton)
+    
+    Or individually:
+    DgenButtonUtils.applyPrimaryButtonColors(this, primaryButton)
+    DgenButtonUtils.applySecondaryButtonColors(this, secondaryButton)
+    -->
+
+    <!-- Primary Button Example -->
+    <Button
+        android:id="@+id/primary_button"
+        style="@style/DgenPrimaryButton"
+        android:text="Primary Button"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Secondary Button Example -->
+    <Button
+        android:id="@+id/secondary_button"
+        style="@style/DgenSecondaryButton"
+        android:text="Secondary Button"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Disabled Primary Button Example -->
+    <Button
+        android:id="@+id/disabled_primary_button"
+        style="@style/DgenPrimaryButton"
+        android:text="Disabled Primary"
+        android:enabled="false"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Disabled Secondary Button Example -->
+    <Button
+        android:id="@+id/disabled_secondary_button"
+        style="@style/DgenSecondaryButton"
+        android:text="Disabled Secondary"
+        android:enabled="false"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Custom sized button example -->
+    <Button
+        android:id="@+id/custom_button"
+        style="@style/DgenPrimaryButton"
+        android:text="Custom Size"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="12dp"
+        android:textSize="16sp" />
+
+</LinearLayout>

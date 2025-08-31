@@ -1,0 +1,71 @@
+package org.ethosmobile.components.library
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import coil.ImageLoader
+import coil.compose.AsyncImage
+import com.core.ui.util.neonOpacity
+import com.core.ui.util.pulseOpacity
+import org.ethosmobile.components.library.theme.PitagonsSans
+
+@Composable
+fun InfoScreen(
+    modifier: Modifier = Modifier,
+    gifEnabledLoader: ImageLoader,
+    text: String,
+    primaryColor: Color,
+    size: Dp = 275.dp,
+    offset: Dp = (-48).dp
+){
+    Box(
+        modifier = modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ){
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(0.dp),
+            modifier = Modifier.offset(y=offset)
+        ) {
+            AsyncImage(
+                imageLoader = gifEnabledLoader,
+                model = R.drawable.wireframe_torus,
+                contentDescription = null,
+                modifier = Modifier.size(size),
+                colorFilter = ColorFilter.tint(primaryColor.copy(pulseOpacity))
+
+            )
+
+            Text(
+                text = text,
+                style = TextStyle(
+                    fontFamily = PitagonsSans,
+                    color = primaryColor.copy(neonOpacity),
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 16.sp,
+                    letterSpacing = 0.sp,
+                    textDecoration = TextDecoration.None,
+                    textAlign = TextAlign.Center
+                ),
+                modifier = Modifier.width(300.dp)
+            )
+        }
+    }
+}

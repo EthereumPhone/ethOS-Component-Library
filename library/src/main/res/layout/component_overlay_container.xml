@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Base overlay container with consistent padding and structure -->
+<app.grapheneos.camera.ui.SettingsFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/overlay_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Background dim overlay -->
+    <View
+        android:id="@+id/overlay_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dgen_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Main content container -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <app.grapheneos.camera.ui.LockableScrollView
+            android:id="@+id/overlay_scroll_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/overlay_inner_card"
+                style="@style/SettingsDialogCard"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Content will be added here -->
+                <FrameLayout
+                    android:id="@+id/overlay_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </app.grapheneos.camera.ui.LockableScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</app.grapheneos.camera.ui.SettingsFrameLayout>

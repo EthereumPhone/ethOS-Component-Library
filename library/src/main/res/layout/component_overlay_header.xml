@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Reusable header with title and dismiss button -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <TextView
+        android:id="@+id/overlay_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/space_mono_bold"
+        android:textSize="24sp"
+        android:textColor="?attr/colorPrimary"
+        android:textAllCaps="true"
+        tools:text="OVERLAY TITLE"
+        app:layout_constraintBottom_toBottomOf="@+id/overlay_dismiss_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/overlay_dismiss_button" />
+
+    <ImageButton
+        android:id="@+id/overlay_dismiss_button"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="-8dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cancel"
+        app:tint="?attr/colorPrimary" />
+
+</merge>

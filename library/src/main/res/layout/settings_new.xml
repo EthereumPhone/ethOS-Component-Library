@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<app.grapheneos.camera.ui.SettingsFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background dim overlay -->
+    <View
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Main settings card -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/SettingsDialogCard"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="@dimen/settings_dialog_max_width">
+
+            <!-- Header with title and dismiss button -->
+            <TextView
+                android:id="@+id/setting_title"
+                style="@style/ComponentHeaderTitle"
+                android:text="CAMERA SETTINGS"
+                app:layout_constraintBottom_toBottomOf="@+id/dismissButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/dismissButton" />
+
+            <ImageButton
+                android:id="@+id/dismissButton"
+                style="@style/ComponentSettingsDismissButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Toggle Buttons Row -->
+            <LinearLayout
+                android:id="@+id/toggle_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/setting_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <app.grapheneos.camera.ui.ToggleImageButton
+                    android:id="@+id/location_toggle"
+                    style="@style/ComponentToggleButton"
+                    android:background="@drawable/torch_accent"
+                    android:src="@drawable/location_toggle_icon" />
+
+                <app.grapheneos.camera.ui.ToggleImageButton
+                    android:id="@+id/aspect_ratio_toggle"
+                    style="@style/ComponentToggleButton"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/aspect_ratio_accent"
+                    android:src="@drawable/aspect_ratio_toggle_icon" />
+
+                <app.grapheneos.camera.ui.ToggleImageButton
+                    android:id="@+id/torch_toggle_option"
+                    style="@style/ComponentToggleButton"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/location_accent"
+                    android:src="@drawable/torch_toggle_icon" />
+
+                <FrameLayout
+                    android:id="@+id/grid_toggle_container"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@android:color/transparent">
+
+                    <app.grapheneos.camera.ui.ToggleImageButton
+                        android:id="@+id/grid_toggle_option"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:padding="0dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/grid_off_circle"
+                        android:tint="@null" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/flash_toggle_container"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@android:color/transparent">
+
+                    <app.grapheneos.camera.ui.ToggleImageButton
+                        android:id="@+id/flash_toggle_option"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:padding="0dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/flash_off_circle"
+                        android:tint="@null" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- Optimize For Radio Group -->
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/settings_dialog_menu_item_height"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/settings_dialog_menu_item_horizontal"
+                android:paddingVertical="@dimen/settings_dialog_menu_item_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/toggle_row">
+
+                <TextView
+                    android:id="@+id/optimize_for_label"
+                    style="@style/SettingsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/optimize_for" />
+
+                <app.grapheneos.camera.ui.CustomRadioGroup
+                    android:id="@+id/cm_radio_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal">
+
+                    <app.grapheneos.camera.ui.CustomRadioButton
+                        android:id="@+id/quality_radio"
+                        checked="true"
+                        text="@string/quality"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp" />
+
+                    <app.grapheneos.camera.ui.CustomRadioButton
+                        android:id="@+id/latency_radio"
+                        checked="false"
+                        text="@string/latency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </app.grapheneos.camera.ui.CustomRadioGroup>
+            </RelativeLayout>
+
+            <!-- Include Audio Switch -->
+            <LinearLayout
+                android:id="@+id/include_audio_setting"
+                style="@style/ComponentLabelRowContainer"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+
+                <TextView
+                    style="@style/SettingsLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/include_audio" />
+
+                <app.grapheneos.camera.ui.CustomSquareSwitch
+                    android:id="@+id/include_audio_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/settings_dialog_switch_height"
+                    android:checked="true" />
+            </LinearLayout>
+
+            <!-- Self Illumination Switch -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/self_illumination_setting"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/settings_dialog_menu_item_height"
+                android:layout_marginTop="4dp"
+                android:paddingHorizontal="@dimen/settings_dialog_menu_item_horizontal"
+                android:paddingVertical="@dimen/settings_dialog_menu_item_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/include_audio_setting">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/SettingsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/self_illumination"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <app.grapheneos.camera.ui.CustomSquareSwitch
+                    android:id="@+id/self_illumination_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/settings_dialog_switch_height"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Enable EIS Switch -->
+            <LinearLayout
+                android:id="@+id/enable_eis_setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/settings_dialog_menu_item_horizontal"
+                android:paddingVertical="@dimen/settings_dialog_menu_item_vertical"
+                android:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@+id/self_illumination_setting">
+
+                <TextView
+                    style="@style/SettingsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/enable_eis" />
+
+                <LinearLayout
+                    android:id="@+id/enable_eis_switch_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end|center_vertical">
+
+                    <app.grapheneos.camera.ui.CustomSquareSwitch
+                        android:id="@+id/enable_eis_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/settings_dialog_switch_height"
+                        android:checked="true" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Timer Dropdown -->
+            <LinearLayout
+                android:id="@+id/timer_setting"
+                style="@style/ComponentLabelRowContainer"
+                app:layout_constraintTop_toBottomOf="@+id/enable_eis_setting">
+
+                <TextView
+                    style="@style/SettingsLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/timer" />
+
+                <Spinner
+                    android:id="@+id/timer_spinner"
+                    style="@style/SettingsSpinner"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
+            <!-- Focus Timeout Dropdown -->
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                style="@style/ComponentLabelRowContainer"
+                app:layout_constraintTop_toBottomOf="@+id/timer_setting">
+
+                <TextView
+                    style="@style/SettingsLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/focus_timeout" />
+
+                <Spinner
+                    android:id="@+id/focus_timeout_spinner"
+                    style="@style/SettingsSpinner"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
+            <!-- Video Quality Dropdown -->
+            <LinearLayout
+                android:id="@+id/video_quality_setting"
+                style="@style/ComponentLabelRowContainer"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                <TextView
+                    style="@style/SettingsLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/video_quality" />
+
+                <Spinner
+                    android:id="@+id/video_quality_spinner"
+                    style="@style/SettingsSpinner"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Placeholder views for backward compatibility -->
+    <FrameLayout
+        android:id="@+id/settingsDialog"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/settingsFrame"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/settingsScrollview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/settingsScrollviewContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/include_audio_switch_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/self_illumination_switch_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
+</app.grapheneos.camera.ui.SettingsFrameLayout>

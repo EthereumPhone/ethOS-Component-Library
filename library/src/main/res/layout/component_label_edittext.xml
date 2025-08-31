@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Reusable label with EditText component -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/label_edittext_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:layout_marginStart="-1dp"
+    android:paddingStart="0dp"
+    android:paddingEnd="@dimen/settings_dialog_menu_item_horizontal"
+    android:paddingVertical="@dimen/settings_dialog_menu_item_vertical">
+
+    <TextView
+        android:id="@+id/label_text"
+        style="@style/SettingsLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="0dp"
+        tools:text="LABEL" />
+
+    <EditText
+        android:id="@+id/edit_text"
+        style="@style/MintEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textNoSuggestions"
+        android:maxLines="1"
+        android:textIsSelectable="false"
+        android:longClickable="false"
+        tools:hint="Enter text" />
+
+</LinearLayout>

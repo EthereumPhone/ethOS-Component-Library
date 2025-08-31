@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Style for the Location toggle button -->
+    <style name="LocationToggleButton" parent="SettingsToggleIcon">
+        <!-- Icon & tint -->
+        <item name="android:drawableTop">@drawable/location_off</item>
+        <item name="android:drawableTint">@color/location_toggle_icon_tint</item>
+        <!-- Background that swaps colours based on state -->
+        <item name="android:background">@drawable/location_toggle_background</item>
+        <!-- Remove any text padding; icon-only -->
+        <item name="android:textOn"/>
+        <item name="android:textOff"/>
+        <item name="android:text"/>
+    </style>
+
+</resources> 

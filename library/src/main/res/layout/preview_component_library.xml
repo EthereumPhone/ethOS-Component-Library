@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Preview layout to demonstrate all reusable components -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/settings_bg"
+        android:padding="16dp">
+
+        <!-- Component 1: Header -->
+        <TextView
+            style="@style/SettingsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COMPONENT: HEADER"
+            android:textColor="@android:color/holo_green_light"
+            android:layout_marginBottom="8dp" />
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/settings_bg"
+            android:padding="8dp">
+            <include layout="@layout/component_overlay_header" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorPrimary"
+            android:layout_marginVertical="16dp" />
+
+        <!-- Component 2: Toggle Button Row -->
+        <TextView
+            style="@style/SettingsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COMPONENT: TOGGLE BUTTONS"
+            android:textColor="@android:color/holo_green_light"
+            android:layout_marginBottom="8dp" />
+
+        <include layout="@layout/component_toggle_button_row" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorPrimary"
+            android:layout_marginVertical="16dp" />
+
+        <!-- Component 3: Label with Switch -->
+        <TextView
+            style="@style/SettingsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COMPONENT: LABEL WITH SWITCH"
+            android:textColor="@android:color/holo_green_light"
+            android:layout_marginBottom="8dp" />
+
+        <include layout="@layout/component_label_switch" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorPrimary"
+            android:layout_marginVertical="16dp" />
+
+        <!-- Component 4: Label with Dropdown -->
+        <TextView
+            style="@style/SettingsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COMPONENT: LABEL WITH DROPDOWN"
+            android:textColor="@android:color/holo_green_light"
+            android:layout_marginBottom="8dp" />
+
+        <include layout="@layout/component_label_dropdown" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorPrimary"
+            android:layout_marginVertical="16dp" />
+
+        <!-- Component 5: Label with Radio Group -->
+        <TextView
+            style="@style/SettingsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COMPONENT: LABEL WITH RADIO GROUP"
+            android:textColor="@android:color/holo_green_light"
+            android:layout_marginBottom="8dp" />
+
+        <include layout="@layout/component_label_radio_group" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorPrimary"
+            android:layout_marginVertical="16dp" />
+
+        <!-- Component 6: Label with EditText -->
+        <TextView
+            style="@style/SettingsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COMPONENT: LABEL WITH EDITTEXT"
+            android:textColor="@android:color/holo_green_light"
+            android:layout_marginBottom="8dp" />
+
+        <include layout="@layout/component_label_edittext" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/colorPrimary"
+            android:layout_marginVertical="16dp" />
+
+        <!-- Component 7: Label with Value -->
+        <TextView
+            style="@style/SettingsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COMPONENT: LABEL WITH VALUE"
+            android:textColor="@android:color/holo_green_light"
+            android:layout_marginBottom="8dp" />
+
+        <include layout="@layout/component_label_value" />
+
+    </LinearLayout>
+</ScrollView>

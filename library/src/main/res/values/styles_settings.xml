@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Common label style for all static text inside the Settings dialog -->
+    <style name="SettingsLabel">
+        <item name="android:fontFamily">@font/spacemono_bold</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- MaterialRadioButton appearance used in the optimise-for options -->
+    <style name="SettingsRadioButton">
+        <item name="android:fontFamily">@font/spacemono_bold</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:button">@drawable/radio_square_selector</item>
+        <!-- Ensure the tint matches the current theme primary colour in case the selector is vector-based -->
+        <item name="android:buttonTint">?attr/colorPrimary</item>
+        <!-- Material Design 3 theming for radio buttons -->
+        <item name="buttonTint">?attr/colorPrimary</item>
+        <!-- Remove extra space before text and add proper gap -->
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:drawablePadding">16dp</item>
+    </style>
+
+    <!-- Base style for the square toggle buttons at the top of the dialog -->
+    <style name="SettingsToggle">
+        <item name="android:layout_width">@dimen/toggle_button_size</item>
+        <item name="android:layout_height">@dimen/toggle_button_size</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+    </style>
+
+    <!-- Icon-only toggle button (location, torch) -->
+    <style name="SettingsToggleIcon" parent="SettingsToggle">
+        <!-- No text displayed -->
+        <item name="android:textOn"/>
+        <item name="android:textOff"/>
+        <item name="android:text"/>
+    </style>
+
+    <!-- Aspect-ratio toggle variant that shows text -->
+    <style name="SettingsToggleAspect" parent="SettingsToggle">
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">@font/spacemono_bold</item>
+        <item name="android:textColor">?attr/colorSecondary</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+    </style>
+
+    <!-- Base spinner style used throughout the Settings dialog -->
+    <style name="SettingsSpinner">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/custom_spinner_background</item>
+        <item name="android:dropDownWidth">match_parent</item>
+        <item name="android:minWidth">120dp</item>
+    </style>
+
+    <!-- Settings dialog card container style -->
+    <style name="SettingsDialogCard">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/settings_bg</item>
+        <item name="android:padding">@dimen/settings_dialog_padding_horizontal</item>
+    </style>
+
+    <!-- Mint EditText style -->
+    <style name="MintEditText">
+        <item name="android:fontFamily">@font/pitagonsanstext_semibold</item>
+        <item name="android:textColor">@color/dgen_white</item>
+        <item name="android:textColorHint">@color/mint_hint_color</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="android:background">@drawable/mint_edittext_background</item>
+        <item name="android:textCursorDrawable">@drawable/mint_cursor</item>
+        <item name="android:textSelectHandleLeft">@drawable/mint_text_selection_handle_left</item>
+        <item name="android:textSelectHandleRight">@drawable/mint_text_selection_handle_right</item>
+        <item name="android:textSelectHandle">@drawable/mint_text_selection_handle_middle</item>
+        <item name="android:textColorHighlight">@android:color/transparent</item>
+        <!-- Hide scrollbar but still allow internal scrolling -->
+        <item name="android:scrollbars">none</item>
+        <!-- Request system to draw fading edges vertically -->
+        <item name="android:requiresFadingEdge">vertical</item>
+        <!-- Length (in dp) for the fading effect that will appear at the top & bottom while scrolling -->
+        <item name="android:fadingEdgeLength">24dp</item>
+        <item name="android:actionModeStyle">@style/MintActionModeStyle</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+    </style>
+
+    <!-- Mint Cancel Button style -->
+    <style name="MintCancelButton">
+        <item name="android:fontFamily">@font/spacemono_bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Mint Confirm Button style -->
+    <style name="MintConfirmButton">
+        <item name="android:fontFamily">@font/spacemono_bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">20sp</item>
+        <!-- Background and text color applied programmatically -->
+    </style>
+
+    <!-- Delete Confirm Button style (pill-shaped with system primary color) -->
+    <style name="DeleteConfirmButton">
+        <item name="android:fontFamily">@font/spacemono_bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@drawable/pill_button_primary</item>
+        <item name="android:textColor">@color/dynamic_secondary_color</item>
+        <item name="android:paddingHorizontal">16dp</item>
+        <item name="android:paddingVertical">2dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:elevation">8dp</item>
+    </style>
+
+    <!-- Delete Cancel Button style -->
+    <style name="DeleteCancelButton">
+        <item name="android:fontFamily">@font/spacemono_bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@drawable/button_rounded_3dp</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="android:textColor">@color/dynamic_primary_color</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    
+    <!-- Custom Action Mode Style for Selection Menu -->
+    <style name="MintActionModeStyle" parent="Widget.AppCompat.ActionMode">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:titleTextStyle">@style/MintActionModeTitle</item>
+        <item name="android:subtitleTextStyle">@style/MintActionModeTitle</item>
+        <item name="android:height">0dp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+    
+    <style name="MintActionModeTitle" parent="TextAppearance.AppCompat.Widget.ActionMode.Title">
+        <item name="android:fontFamily">@font/spacemono_bold</item>
+        <item name="android:textColor">@android:color/transparent</item>
+        <item name="android:textSize">0sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <!-- More Settings Header style -->
+    <style name="MoreSettingsHeader">
+        <item name="android:fontFamily">@font/spacemono_bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginVertical">12dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+    </style>
+
+    <!-- More Settings Item Title style -->
+    <style name="MoreSettingsItemTitle">
+        <item name="android:fontFamily">@font/spacemono_bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:paddingBottom">2dp</item>
+    </style>
+
+    <!-- More Settings Item Description style -->
+    <style name="MoreSettingsItemDescription">
+        <item name="android:fontFamily">@font/pitagonsanstext_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingStart">10dp</item>
+    </style>
+
+    <!-- More Settings EditText style -->
+    <style name="MoreSettingsEditText" parent="MintEditText">
+        <item name="android:fontFamily">@font/pitagonsanstext_semibold</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="android:background">@drawable/mint_edittext_background</item>
+        <item name="android:textCursorDrawable">@drawable/mint_cursor</item>
+        <item name="android:textSelectHandleLeft">@drawable/mint_text_selection_handle_left</item>
+        <item name="android:textSelectHandleRight">@drawable/mint_text_selection_handle_right</item>
+        <item name="android:textSelectHandle">@drawable/mint_text_selection_handle_middle</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+    </style>
+
+    <!-- More Settings Button style -->
+    <style name="MoreSettingsButton">
+        <item name="android:fontFamily">@font/spacemono_bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- Scan Result Tab Text style -->
+    <style name="ScanResultTabText">
+        <item name="android:fontFamily">@font/spacemono_bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources> 

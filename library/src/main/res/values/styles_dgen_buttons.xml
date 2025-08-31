@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base style for both primary and secondary buttons -->
+    <style name="DgenBaseButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/spacemono_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@drawable/button_rounded_3dp</item>
+    </style>
+
+    <!-- Primary button style -->
+    <style name="DgenPrimaryButton" parent="DgenBaseButton">
+        <item name="android:background">@drawable/button_rounded_3dp</item>
+        <item name="android:backgroundTint">@color/dynamic_primary_color</item>
+        <item name="android:textColor">@color/dynamic_secondary_color</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <!-- Secondary button style -->
+    <style name="DgenSecondaryButton" parent="DgenBaseButton">
+        <!-- All styling applied programmatically -->
+    </style>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Reusable label with switch component -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/label_switch_container"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/settings_dialog_menu_item_height"
+    android:layout_marginTop="4dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/settings_dialog_menu_item_horizontal"
+    android:paddingVertical="@dimen/settings_dialog_menu_item_vertical">
+
+    <TextView
+        android:id="@+id/label_text"
+        style="@style/SettingsLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        tools:text="Label Text" />
+
+    <app.grapheneos.camera.ui.CustomSquareSwitch
+        android:id="@+id/switch_control"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/settings_dialog_switch_height"
+        android:checked="true" />
+
+</LinearLayout>
