@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Checked/on state -> primary background -->
+    <item android:state_checked="true">
+        <shape android:shape="rectangle">
+            <solid android:color="?attr/colorPrimary" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+
+    <!-- Default/off state -> secondary background -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="?attr/colorSecondary" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+</selector> 

@@ -4,11 +4,9 @@ import android.opengl.GLES20
 import android.opengl.GLSurfaceView
 import android.opengl.Matrix
 import android.util.Log
-import androidx.compose.ui.unit.Dp
-import org.ethosmobile.contacts.opengl.OpenGLColor
-import org.ethosmobile.contacts.opengl.hexToRGBA
-import org.ethosmobile.contacts.opengl.normalizeColor
-import org.ethosmobile.contacts.opengl.shapes.Globe
+import org.ethosmobile.components.library.opengl.OpenGLColor
+import org.ethosmobile.components.library.opengl.hexToRGBA
+import org.ethosmobile.components.library.opengl.shapes.Globe
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.nio.FloatBuffer

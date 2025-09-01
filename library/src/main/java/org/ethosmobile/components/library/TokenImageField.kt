@@ -21,20 +21,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
 import coil.compose.AsyncImage
-import com.contacts.dgenlibrary.theme.ghostOpacity
-import com.contacts.dgenlibrary.theme.neonOpacity
-import com.contacts.dgenlibrary.theme.pulseOpacity
 import com.core.ui.DgenTheme
 import com.core.ui.util.ghostOpacity
 import com.core.ui.util.neonOpacity
-
-import com.freedomfactory.tokenlauncher.ui.theme.DgenTheme
-import com.freedomfactory.tokenlauncher.ui.theme.label_fontSize
 
 import kotlinx.coroutines.delay
 

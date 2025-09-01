@@ -9,6 +9,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
 import org.ethosmobile.components.library.R
+import org.ethosmobile.components.library.theme.SystemColorManager
 
 class CustomRadioButton @JvmOverloads constructor(
     context: Context,
@@ -28,7 +29,7 @@ class CustomRadioButton @JvmOverloads constructor(
     
     init {
         // Load Space Mono font
-        val spaceMono = ResourcesCompat.getFont(context, com.camera.dgenlibrary.R.font.spacemono_bold)
+        val spaceMono = ResourcesCompat.getFont(context, R.font.space_mono_bold)
         textPaint.typeface = spaceMono
         textPaint.textSize = 20f
         

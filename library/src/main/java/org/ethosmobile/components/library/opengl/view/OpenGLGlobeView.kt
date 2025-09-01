@@ -3,8 +3,8 @@ package org.ethosmobile.components.library.opengl.view
 
 import android.content.Context
 import android.opengl.GLSurfaceView
-import org.ethosmobile.contacts.opengl.OpenGLColor
-import org.ethosmobile.contacts.opengl.hexToRGBA
+import org.ethosmobile.components.library.opengl.OpenGLColor
+import org.ethosmobile.components.library.opengl.hexToRGBA
 import org.ethosmobile.contacts.opengl.renderer.GlobeRenderer
 
 class OpenGLGlobeView(context: Context) : GLSurfaceView(context) {

@@ -9,4 +9,16 @@
         <attr name="text" />
         <attr name="checked" />
     </declare-styleable>
-</resources> 
+    
+    <!-- Shape appearance attributes -->
+    <attr name="cornerFamily" format="enum">
+        <enum name="rounded" value="0" />
+        <enum name="cut" value="1" />
+    </attr>
+    <attr name="cornerSize" format="dimension|fraction" />
+    
+    <!-- Material3 color attributes -->
+    <attr name="colorSecondary" format="color" />
+    <attr name="colorOnSurface" format="color" />
+    <attr name="colorOnPrimary" format="color" />
+</resources>

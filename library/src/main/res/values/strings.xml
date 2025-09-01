@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="optimize_for">Optimize for</string>
+    <string name="quality">Quality</string>
+    <string name="latency">Latency</string>
+    <string name="include_audio">Include audio</string>
+    <string name="self_illumination">Self illumination</string>
+    <string name="enable_eis">Enable EIS</string>
+    <string name="timer">Timer</string>
+    <string name="focus_timeout">Focus timeout</string>
+    <string name="video_quality">Video quality</string>
+</resources>

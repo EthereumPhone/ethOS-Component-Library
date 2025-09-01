@@ -3,6 +3,7 @@ package org.ethosmobile.components.library.xml.layout
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
+import org.ethosmobile.components.library.xml.CustomRadioButton
 
 class CustomRadioGroup @JvmOverloads constructor(
     context: Context,

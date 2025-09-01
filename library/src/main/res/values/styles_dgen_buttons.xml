@@ -17,12 +17,12 @@
         <item name="android:textSize">14sp</item>
         <item name="android:gravity">center</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:background">@drawable/button_rounded_3dp</item>
+        <item name="android:background">@drawable/dgen_button_rounded_3dp</item>
     </style>
 
     <!-- Primary button style -->
     <style name="DgenPrimaryButton" parent="DgenBaseButton">
-        <item name="android:background">@drawable/button_rounded_3dp</item>
+        <item name="android:background">@drawable/dgen_button_rounded_3dp</item>
         <item name="android:backgroundTint">@color/dynamic_primary_color</item>
         <item name="android:textColor">@color/dynamic_secondary_color</item>
         <item name="android:textSize">20sp</item>

@@ -1,12 +1,14 @@
 package org.ethosmobile.components.library
 
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.animation.togetherWith
+import androidx.compose.animation.with
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
@@ -59,30 +61,16 @@ import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
-import android.view.View
-import com.contacts.dgenlibrary.DgenBasicSearchTextfield
-import com.contacts.dgenlibrary.DgenBasicTextfield
-import com.contacts.dgenlibrary.theme.dgenOcean
-import com.contacts.dgenlibrary.theme.dgenRed
-import com.contacts.dgenlibrary.theme.label_fontSize
-import com.contacts.dgenlibrary.theme.mediumEnterDuration
-import com.contacts.dgenlibrary.theme.mediumExitDuration
-import com.contacts.dgenlibrary.theme.pulseOpacity
-import org.ethosmobile.contacts.R
-import org.ethosmobile.contacts.ui.utils.Haptics
-import org.ethosmobile.contacts.ui.theme.DgenTheme
-import org.ethosmobile.contacts.ui.theme.PitagonsSans
-import org.ethosmobile.contacts.ui.theme.SpaceMono
-import org.ethosmobile.contacts.ui.theme.body1_fontSize
-import org.ethosmobile.contacts.ui.theme.dgenBlack
-import org.ethosmobile.contacts.ui.theme.dgenGray
-import org.ethosmobile.contacts.ui.theme.dgenTurqoise
-import org.ethosmobile.contacts.ui.theme.dgenWhite
-import com.contacts.dgenlibrary.theme.shortTransitionSpec
+import com.core.ui.util.body1_fontSize
+import com.core.ui.util.dgenBlack
+import com.core.ui.util.dgenWhite
 import com.core.ui.util.mediumEnterDuration
 import com.core.ui.util.mediumExitDuration
 import com.core.ui.util.pulseOpacity
+import org.ethosmobile.components.library.theme.PitagonsSans
+import org.ethosmobile.components.library.theme.SpaceMono
 
+@OptIn(ExperimentalComposeUiApi::class, ExperimentalAnimationApi::class)
 @Composable
 fun SearchHeader(
     searchValue: TextFieldValue,
@@ -108,6 +96,16 @@ fun SearchHeader(
     } else {
         @Suppress("DEPRECATION")
         context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+    }
+    
+    // Helper function for haptic feedback
+    fun performHapticFeedback() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            vibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            @Suppress("DEPRECATION")
+            vibrator.vibrate(50)
+        }
     }
     val animatedColor by animateColorAsState(
         targetValue = if (isSearchFocused.value) secondaryColor else Color.Transparent,
@@ -161,7 +159,7 @@ fun SearchHeader(
                         modifier = Modifier,
                         targetState = isSearchFocused.value,
                         transitionSpec = {
-                            fadeIn(animationSpec = tween(mediumEnterDuration)) togetherWith
+                            fadeIn(animationSpec = tween(mediumEnterDuration)) with
                                     fadeOut(animationSpec = tween(mediumExitDuration))
                         }
                     ) { state ->
@@ -171,14 +169,14 @@ fun SearchHeader(
                                     .size(32.dp)
                                     .pointerInput(true) {
                                         detectTapGestures {
-                                            view.performHapticFeedback(Haptics().NEUTRAL_HAPTIC)
+                                            performHapticFeedback()
                                             onDismissSearch()
                                         }
                                     },
                                 contentAlignment = Alignment.Center
                             ) {
                                 Icon(
-                                    painter = painterResource(R.drawable.backicon),
+                                    painter = painterResource(R.drawable.back),
                                     contentDescription = "Back",
                                     tint = primaryColor,
                                     modifier = Modifier.size(24.dp)
@@ -191,14 +189,14 @@ fun SearchHeader(
                                     .size(32.dp)
                                     .pointerInput(Unit) {
                                         detectTapGestures {
-                                            view.performHapticFeedback(Haptics().NEUTRAL_HAPTIC)
+                                            performHapticFeedback()
                                             isSearchFocused.value = true
                                         }
                                     },
                                 contentAlignment = Alignment.Center
                             ) {
                                 Icon(
-                                    painter = painterResource(R.drawable.searchicon),
+                                    painter = painterResource(R.drawable.search),
                                     contentDescription = "Search",
                                     tint = primaryColor,
                                     modifier = Modifier.size(24.dp)
@@ -258,7 +256,7 @@ fun SearchHeader(
                         modifier = Modifier,
                         targetState = isSearchFocused.value,
                         transitionSpec = {
-                            fadeIn(animationSpec = tween(mediumEnterDuration)) togetherWith
+                            fadeIn(animationSpec = tween(mediumEnterDuration)) with
                                     fadeOut(animationSpec = tween(mediumExitDuration))
                         }
                     ) { state ->
@@ -268,7 +266,7 @@ fun SearchHeader(
                                     .size(40.dp)
                                     .pointerInput(searchValue.text) {
                                         detectTapGestures {
-                                            view.performHapticFeedback(Haptics().NEUTRAL_HAPTIC)
+                                            performHapticFeedback()
                                             // If search field is empty, dismiss the search mode
                                             if (searchValue.text.isEmpty()) {
                                                 onDismissSearch()
@@ -305,7 +303,7 @@ fun SearchHeader(
                                     .size(56.dp)
                                     .pointerInput(true) {
                                         detectTapGestures {
-                                            view.performHapticFeedback(Haptics().NEUTRAL_HAPTIC)
+                                            performHapticFeedback()
                                             onAddContact()
                                         }
                                     },

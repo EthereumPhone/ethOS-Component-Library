@@ -1,9 +1,7 @@
 package org.ethosmobile.components.library
 
-import android.util.Log
 import android.view.View
 import android.view.ViewTreeObserver
-import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.LinearEasing
@@ -12,7 +10,7 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -26,13 +24,11 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
@@ -43,11 +39,9 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.nativeKeyCode
 import androidx.compose.ui.input.key.onKeyEvent
-import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.text.TextLayoutResult
@@ -60,13 +54,10 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.platform.LocalTextToolbar
-import androidx.compose.ui.platform.TextToolbar
-import androidx.compose.ui.platform.TextToolbarStatus
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.foundation.text.selection.TextSelectionColors
-import androidx.compose.runtime.Stable
 import androidx.compose.runtime.DisposableEffect as ComposeDisposableEffect
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
@@ -83,15 +74,17 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.foundation.background
 import com.core.ui.util.body2_fontSize
 import com.core.ui.util.dgenOcean
-import com.core.ui.util.dgenTurqoise
 import com.core.ui.util.dgenWhite
 import com.core.ui.util.ghostOpacity
 import com.core.ui.util.label_fontSize
 import org.ethosmobile.components.library.theme.PitagonsSans
 import org.ethosmobile.components.library.theme.SpaceMono
 import org.ethosmobile.components.library.theme.SystemColorManager
+import org.ethosmobile.components.library.util.DgenTextToolbar
+import org.ethosmobile.components.library.util.DgenTextToolbarState
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalComposeUiApi::class)
+
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SimpleDgenTextfield(
     value: TextFieldValue = TextFieldValue(""),
@@ -131,8 +124,8 @@ fun SimpleDgenTextfield(
     val focusManager = textfieldFocusManager ?: LocalFocusManager.current
     
     // Custom text toolbar for selection menu
-    val textToolbarState = remember { SimpleTextToolbarState(activeColor) }
-    val customTextToolbar = remember(textToolbarState) { SimpleTextToolbar(textToolbarState) }
+    val textToolbarState = remember { DgenTextToolbarState(activeColor) }
+    val customTextToolbar = remember(textToolbarState) { DgenTextToolbar(textToolbarState) }
 
     val animatedBackgroundOpacity by animateFloatAsState(
         targetValue = if (isFocused) ghostOpacity else 0f,
@@ -290,272 +283,8 @@ fun SimpleDgenTextfield(
     }
     
     // Render custom selection menu
-    SimpleTextSelectionMenuContent(textToolbarState)
+    DgenTextSelectionMenuContent(textToolbarState)
 }
 
-/**
- * State holder for custom text toolbar
- */
-@Stable
-class SimpleTextToolbarState(
-    private val primaryColor: Color = dgenTurqoise
-) {
-    var isShowing by mutableStateOf(false)
-        private set
-    var menuRect by mutableStateOf(Rect.Zero)
-        private set
-    var onCopy: (() -> Unit)? by mutableStateOf(null)
-        private set
-    var onPaste: (() -> Unit)? by mutableStateOf(null)
-        private set
-    var onCut: (() -> Unit)? by mutableStateOf(null)
-        private set
-    var onSelectAll: (() -> Unit)? by mutableStateOf(null)
-        private set
 
-    fun show(
-        rect: Rect,
-        onCopyRequested: (() -> Unit)?,
-        onPasteRequested: (() -> Unit)?,
-        onCutRequested: (() -> Unit)?,
-        onSelectAllRequested: (() -> Unit)?
-    ) {
-        menuRect = rect
-        onCopy = onCopyRequested
-        onPaste = onPasteRequested
-        onCut = onCutRequested
-        onSelectAll = onSelectAllRequested
-        isShowing = true
-    }
 
-    fun hide() {
-        isShowing = false
-    }
-}
-
-/**
- * Custom Text Toolbar implementation
- */
-class SimpleTextToolbar(
-    private val state: SimpleTextToolbarState
-) : TextToolbar {
-    
-    override val status: TextToolbarStatus
-        get() = if (state.isShowing) TextToolbarStatus.Shown else TextToolbarStatus.Hidden
-
-    override fun hide() {
-        state.hide()
-    }
-
-    override fun showMenu(
-        rect: Rect,
-        onCopyRequested: (() -> Unit)?,
-        onPasteRequested: (() -> Unit)?,
-        onCutRequested: (() -> Unit)?,
-        onSelectAllRequested: (() -> Unit)?
-    ) {
-        if (!state.isShowing) {
-            state.show(rect, onCopyRequested, onPasteRequested, onCutRequested, onSelectAllRequested)
-        }
-    }
-}
-
-@Composable
-fun SimpleTextSelectionMenuContent(state: SimpleTextToolbarState) {
-    if (state.isShowing) {
-        ComposeDisposableEffect(state.isShowing) {
-            onDispose {
-                // Cleanup if needed
-            }
-        }
-        
-        SimpleSelectionMenu(
-            rect = state.menuRect,
-            onCopy = state.onCopy,
-            onPaste = state.onPaste,
-            onCut = state.onCut,
-            onSelectAll = state.onSelectAll,
-            onDismiss = { state.hide() },
-            primaryColor = SystemColorManager.primaryColor
-        )
-    }
-}
-
-@Composable
-fun SimpleSelectionMenu(
-    rect: Rect,
-    onCopy: (() -> Unit)?,
-    onPaste: (() -> Unit)?,
-    onCut: (() -> Unit)?,
-    onSelectAll: (() -> Unit)?,
-    onDismiss: () -> Unit,
-    primaryColor: Color = SystemColorManager.primaryColor
-) {
-    // Get screen dimensions
-    val configuration = androidx.compose.ui.platform.LocalConfiguration.current
-    val screenWidth = configuration.screenWidthDp.dp
-    val screenHeight = configuration.screenHeightDp.dp
-    val density = androidx.compose.ui.platform.LocalDensity.current
-    
-    // Calculate actual menu dimensions based on buttons
-    val buttonCount = listOfNotNull(onCut, onCopy, onPaste, onSelectAll).size
-    val menuWidth = (buttonCount * 50 + 20).dp // Approximate width based on button count
-    val menuHeight = 44.dp // Reduced height for better fit
-    val menuWidthPx = with(density) { menuWidth.toPx() }
-    val menuHeightPx = with(density) { menuHeight.toPx() }
-    val screenWidthPx = with(density) { screenWidth.toPx() }
-    val screenHeightPx = with(density) { screenHeight.toPx() }
-    
-    // Much larger spacing to ensure text is always visible
-    val preferredSpacing = with(density) { 80.dp.toPx() }  // Extra large spacing - text will definitely be visible
-    val minimalSpacing = with(density) { 60.dp.toPx() }    // Even in tight spaces, keep good distance
-    val edgePadding = with(density) { 20.dp.toPx() }       // Increased edge padding too
-    
-    // Calculate horizontal position
-    var xOffset = if (rect.width > 0) {
-        // Center the menu over the selection
-        (rect.left + rect.width / 2 - menuWidthPx / 2).toInt()
-    } else {
-        // Position at cursor for paste on empty field
-        (rect.left - menuWidthPx / 2).toInt()
-    }
-    
-    // Ensure menu stays within screen bounds horizontally with smart adjustment
-    if (xOffset < edgePadding) {
-        // Too close to left edge
-        xOffset = edgePadding.toInt()
-    } else if (xOffset + menuWidthPx > screenWidthPx - edgePadding) {
-        // Too close to right edge
-        xOffset = (screenWidthPx - menuWidthPx - edgePadding).toInt()
-    }
-    
-    // Calculate vertical position with preference for above to avoid covering text
-    val spaceAbove = rect.top
-    val spaceBelow = screenHeightPx - rect.bottom
-    val textHeight = rect.height
-    
-    val yOffset: Int
-    
-    // Prefer placing above the selection to avoid covering text
-    if (spaceAbove >= menuHeightPx + preferredSpacing) {
-        // Place above with good spacing
-        yOffset = (rect.top - menuHeightPx - preferredSpacing).toInt()
-    } else if (spaceBelow >= menuHeightPx + preferredSpacing && textHeight < with(density) { 100.dp.toPx() }) {
-        // Place below only if text is not too tall (to avoid covering multi-line selections)
-        yOffset = (rect.bottom + preferredSpacing).toInt()
-    } else if (spaceAbove > menuHeightPx + minimalSpacing) {
-        // Place above with minimal spacing if needed
-        yOffset = (rect.top - menuHeightPx - minimalSpacing).toInt()
-    } else if (spaceBelow > menuHeightPx + minimalSpacing) {
-        // Place below with minimal spacing
-        yOffset = (rect.bottom + minimalSpacing).toInt()
-    } else {
-        // Last resort: place at top or bottom of screen with extra spacing from text
-        val rectCenterY = rect.top + rect.height / 2
-        if (rectCenterY < screenHeightPx / 2) {
-            // Selection is in top half, place menu at bottom
-            yOffset = (screenHeightPx - menuHeightPx - edgePadding).toInt()
-        } else {
-            // Selection is in bottom half, place menu at top
-            yOffset = edgePadding.toInt()
-        }
-    }
-    
-    val secondaryColor = SystemColorManager.secondaryColor
-    
-    Popup(
-        alignment = Alignment.TopStart,
-        offset = androidx.compose.ui.unit.IntOffset(xOffset, yOffset),
-        onDismissRequest = onDismiss,
-        properties = PopupProperties(
-            focusable = false,
-            dismissOnBackPress = true,
-            dismissOnClickOutside = true
-        )
-    ) {
-        Card(
-            modifier = Modifier
-                .shadow(8.dp, CardRoundedCornerShape(12.dp))
-                .background(secondaryColor, CardRoundedCornerShape(12.dp)),
-            colors = CardDefaults.cardColors(
-                containerColor = secondaryColor
-            ),
-            shape = CardRoundedCornerShape(12.dp)
-        ) {
-            MaterialRow(
-                modifier = Modifier.padding(4.dp),
-                horizontalArrangement = Arrangement.spacedBy(4.dp)
-            ) {
-                onCut?.let {
-                    SimpleTextSelectionMenuButton(
-                        text = "CUT",
-                        onClick = {
-                            it()
-                            onDismiss()
-                        },
-                        primaryColor = primaryColor
-                    )
-                }
-                
-                onCopy?.let {
-                    SimpleTextSelectionMenuButton(
-                        text = "COPY",
-                        onClick = {
-                            it()
-                            onDismiss()
-                        },
-                        primaryColor = primaryColor
-                    )
-                }
-                
-                onPaste?.let {
-                    SimpleTextSelectionMenuButton(
-                        text = "PASTE",
-                        onClick = {
-                            it()
-                            onDismiss()
-                        },
-                        primaryColor = primaryColor
-                    )
-                }
-                
-                onSelectAll?.let {
-                    SimpleTextSelectionMenuButton(
-                        text = "ALL",
-                        onClick = {
-                            it()
-                            onDismiss()
-                        },
-                        primaryColor = primaryColor
-                    )
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun SimpleTextSelectionMenuButton(
-    text: String,
-    onClick: () -> Unit,
-    primaryColor: Color
-) {
-    TextButton(
-        onClick = onClick,
-        modifier = Modifier.height(36.dp),
-        contentPadding = PaddingValues(horizontal = 12.dp),
-        colors = ButtonDefaults.textButtonColors(
-            contentColor = primaryColor
-        )
-    ) {
-        MaterialText(
-            text = text,
-            style = TextStyle(
-                fontFamily = SpaceMono,
-                fontSize = label_fontSize,
-                fontWeight = FontWeight.SemiBold
-            ),
-            color = primaryColor
-        )
-    }
-}

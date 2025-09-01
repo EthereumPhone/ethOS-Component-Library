@@ -1,5 +1,6 @@
 package org.ethosmobile.components.library.background
 
+import androidx.compose.foundation.background
 import kotlin.math.roundToInt
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -52,7 +53,7 @@ fun OpenGLBackground(
         }
     }
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxSize().background(dgenBlack)) {
         // OpenGL rendering in the background
 
             AndroidView(

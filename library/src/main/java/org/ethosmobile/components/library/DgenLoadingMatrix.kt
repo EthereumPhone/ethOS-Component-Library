@@ -7,7 +7,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -28,7 +28,7 @@ fun DgenLoadingMatrix(
     activeLEDColor: Color = dgenTurqoise
 ) {
 
-    var activatedBox by remember { mutableIntStateOf(0) }
+    var activatedBox by remember { mutableStateOf(0) }
 
     val alignments = listOf(
         Alignment.CenterStart,

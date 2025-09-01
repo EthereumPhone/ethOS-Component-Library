@@ -30,7 +30,7 @@
         <item name="android:layout_width">@dimen/toggle_button_size</item>
         <item name="android:layout_height">@dimen/toggle_button_size</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
         <item name="android:backgroundTint">?attr/colorPrimary</item>
     </style>
 
@@ -46,7 +46,7 @@
     <style name="SettingsToggleAspect" parent="SettingsToggle">
         <item name="android:textSize">17sp</item>
         <item name="android:fontFamily">@font/spacemono_bold</item>
-        <item name="android:textColor">?attr/colorSecondary</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:backgroundTint">?attr/colorPrimary</item>
     </style>
@@ -55,7 +55,7 @@
     <style name="SettingsSpinner">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/custom_spinner_background</item>
+        <item name="android:background">@drawable/spinner_background</item>
         <item name="android:dropDownWidth">match_parent</item>
         <item name="android:minWidth">120dp</item>
     </style>
@@ -74,11 +74,11 @@
         <item name="android:textColor">@color/dgen_white</item>
         <item name="android:textColorHint">@color/mint_hint_color</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="android:background">@drawable/mint_edittext_background</item>
-        <item name="android:textCursorDrawable">@drawable/mint_cursor</item>
-        <item name="android:textSelectHandleLeft">@drawable/mint_text_selection_handle_left</item>
-        <item name="android:textSelectHandleRight">@drawable/mint_text_selection_handle_right</item>
-        <item name="android:textSelectHandle">@drawable/mint_text_selection_handle_middle</item>
+        <item name="android:background">@drawable/dgen_edittext_background</item>
+        <item name="android:textCursorDrawable">@drawable/dgen_cursor</item>
+        <item name="android:textSelectHandleLeft">@drawable/dgen_text_selection_handle_left</item>
+        <item name="android:textSelectHandleRight">@drawable/dgen_text_selection_handle_right</item>
+        <item name="android:textSelectHandle">@drawable/dgen_text_selection_handle_middle</item>
         <item name="android:textColorHighlight">@android:color/transparent</item>
         <!-- Hide scrollbar but still allow internal scrolling -->
         <item name="android:scrollbars">none</item>
@@ -114,7 +114,7 @@
         <item name="android:fontFamily">@font/spacemono_bold</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:background">@drawable/pill_button_primary</item>
+        <item name="android:background">@drawable/dgen_pill_button_primary</item>
         <item name="android:textColor">@color/dynamic_secondary_color</item>
         <item name="android:paddingHorizontal">16dp</item>
         <item name="android:paddingVertical">2dp</item>
@@ -127,7 +127,7 @@
         <item name="android:fontFamily">@font/spacemono_bold</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:background">@drawable/button_rounded_3dp</item>
+        <item name="android:background">@drawable/dgen_button_rounded_3dp</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
         <item name="android:textColor">@color/dynamic_primary_color</item>
         <item name="android:paddingLeft">24dp</item>
@@ -187,11 +187,11 @@
     <style name="MoreSettingsEditText" parent="MintEditText">
         <item name="android:fontFamily">@font/pitagonsanstext_semibold</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="android:background">@drawable/mint_edittext_background</item>
-        <item name="android:textCursorDrawable">@drawable/mint_cursor</item>
-        <item name="android:textSelectHandleLeft">@drawable/mint_text_selection_handle_left</item>
-        <item name="android:textSelectHandleRight">@drawable/mint_text_selection_handle_right</item>
-        <item name="android:textSelectHandle">@drawable/mint_text_selection_handle_middle</item>
+        <item name="android:background">@drawable/dgen_edittext_background</item>
+        <item name="android:textCursorDrawable">@drawable/dgen_cursor</item>
+        <item name="android:textSelectHandleLeft">@drawable/dgen_text_selection_handle_left</item>
+        <item name="android:textSelectHandleRight">@drawable/dgen_text_selection_handle_right</item>
+        <item name="android:textSelectHandle">@drawable/dgen_text_selection_handle_middle</item>
         <item name="android:textSize">16sp</item>
         <item name="android:paddingTop">12dp</item>
         <item name="android:paddingBottom">12dp</item>
